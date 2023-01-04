@@ -6,7 +6,7 @@ import Home from "./containers/Home/Home";
 import Header from "./components/Header/Header";
 import Login from "./containers/User/Login/Login";
 import Register from "./containers/User/Register/Register";
-// import Film from "./containers/Films/Films";
+// import Sportscenter from "./containers/Sportscenters/Sportscenters";
 import Profile from "./containers/User/Profile/Profile";
 // import UserSettings from "./containers/User/UserSettings/userSettings";
 // import UserOrder from "./containers/User/UserOrder/UserOrder";
@@ -21,7 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          {/* <Route path="/film" element={<Film />} /> */}
+          {/* <Route path="/sportscenter" element={<Sportscenter />} /> */}
           <Route path="/profile" element={<Profile />} />
           {/* <Route path="/userSettings" element={<UserSettings />} />
           <Route path="/userOrder" element={<UserOrder />} /> */}
