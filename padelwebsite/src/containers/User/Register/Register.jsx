@@ -1,12 +1,198 @@
-import React from "react";
-import './Register.scss';
+import React, { useEffect, useState } from "react";
+import { errorCheck } from "../../../services/errorManage";
+import { useNavigate } from "react-router-dom";
+import "./Register.scss";
+import EyeIcon from "../../../components/icons/EyeIcon";
+import EyeSlashIcon from "../../../components/icons/EyeSlashIcon";
+import axios from "axios";
 
 const Register = () => {
+
+    const dataBase = "http://localhost:3001/";
+
+    //Hooks
+    const [user, setUser] = useState({
+        name: "",
+        email: "",
+        password: "",
+        password2: "",
+        phone: "",
+        dni: "",
+
+    });
+
+    const [userError, setUserError] = useState({
+        nameError: "",
+        emailError: "",
+        passwordError: "",
+        password2Error: "",
+        phoneError: "",
+        dniError: "",
+
+    });
+
+    const [disabled, setDisabled] = useState(true);
+    const [acceptedTerms, setAcceptedTerms] = useState(false);
+    const [passwordShown, setPasswordShown] = useState(false);
+
+    const navigate = useNavigate();
+
+    const SignIn = async () => {
+        try {
+
+            let signIn = await axios.post(dataBase + "auth/register", {
+                name: user.name,
+                email: user.email,
+                password: user.password,
+                phone: user.phone,
+                dni: user.dni,
+                rolIdrol: "user"
+            });
+
+            signIn();
+
+
+
+        } catch (error) {
+            console.error('Sign up failed')
+        }
+
+
+
+
+    };
+
+    const inputHandler = (e) => {
+        setUser({
+            ...user,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    useEffect(() => {
+        const userIsNotFilled = Object.values(user).some((property) => {
+            return property === "";
+        });
+        setDisabled(userIsNotFilled || !acceptedTerms);
+    }, [user, acceptedTerms]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        navigate("/login");
+    };
+
+    const errorHandler = (field, value, type) => {
+        let error = "";
+        error = errorCheck(value, type);
+        setUserError((prevState) => ({
+            ...prevState,
+            [field + "Error"]: error,
+        }));
+    };
+
+    const togglePassword = () => {
+        setPasswordShown(!passwordShown);
+    };
+
     return (
         <div className="registerDesign">
-            I am Register!
+            <div className="formRegisterSquare">
+                <h1 className="registerTittleDesign">WELCOME</h1>
+                <form onSubmit={SignIn} >
+                    <input
+                        type="text"
+                        name="name"
+                        className="registerInputs"
+                        placeholder="Name"
+                        required
+                        onChange={inputHandler}
+                        onInput={(e) => errorHandler(e.target.name, e.target.value, "text")}
+                    />
+                    <div className="errorInput">{userError.nameError}</div>
+                    <input
+                        type="text"
+                        name="email"
+                        className="registerInputs"
+                        placeholder="Email"
+                        onChange={inputHandler}
+                        onInput={(e) =>
+                            errorHandler(e.target.name, e.target.value, "email")
+                        }
+                    />
+                    <div className="errorInput">{userError.emailError}</div>
+                    <input
+                        type="text"
+                        name="phone"
+                        className="registerInputs"
+                        placeholder="Phone Number"
+                        onChange={inputHandler}
+                        onInput={(e) =>
+                            errorHandler(e.target.name, e.target.value, "phone")
+                        }
+                    />
+                    <div className="errorInput">{userError.phoneError}</div>
+                    <input
+                        type="text"
+                        name="dni"
+                        className="registerInputs"
+                        placeholder="DNI"
+                        required
+                        onChange={inputHandler}
+                        onInput={(e) => errorHandler(e.target.name, e.target.value, "dni")}
+                    />
+                    <div className="errorInput">{userError.dniError}</div>
+                    <div className="registerInputs inputContainer">
+                        <input
+                            className="inputDesign passwordInput"
+                            type={passwordShown ? "text" : "password"}
+                            name="password"
+                            placeholder="Password"
+                            onChange={inputHandler}
+                            onInput={(e) =>
+                                errorHandler(e.target.name, e.target.value, "password")
+                            }
+                        />
+                        {passwordShown ? (
+                            <EyeSlashIcon classes="eyeIcon" onClick={togglePassword} />
+                        ) : (
+                            <EyeIcon classes="eyeIcon" onClick={togglePassword} />
+                        )}
+                    </div>
+                    <div className="errorInput">{userError.passwordError}</div>
+                    <input
+                        type="password"
+                        name="password2"
+                        className="registerInputs"
+                        placeholder="Repeat your password"
+                        onChange={inputHandler}
+                        onInput={(e) =>
+                            errorHandler(e.target.name, e.target.value, "password")
+                        }
+                    />
+                    <div className="errorInput">{userError.password2Error}</div>
+                    <div className="registerAdviseDesign">
+
+                        <input
+                            type="checkbox"
+                            defaultChecked={acceptedTerms}
+                            onChange={() => setAcceptedTerms(!acceptedTerms)}
+                        />
+                        <p>
+
+                            He leido la <i>politica</i> de <i>privacidad</i> de la empresa{" "}
+                        </p>
+                    </div>
+                    <br></br>
+                    <input
+                        type="submit"
+                        value="Sign In"
+                        className="submitButton"
+                        disabled={disabled}
+                    />
+                </form>
+            </div>
         </div>
-    )
-}
+    );
+};
 
 export default Register;
