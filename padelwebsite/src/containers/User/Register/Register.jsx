@@ -98,7 +98,7 @@ const Register = () => {
         <div className="registerDesign">
             <div className="formRegisterSquare">
                 <h1 className="registerTittleDesign">WELCOME</h1>
-                <form onSubmit={SignIn} >
+                <div onSubmit={SignIn} >
                     <input
                         type="text"
                         name="name"
@@ -183,13 +183,12 @@ const Register = () => {
                         </p>
                     </div>
                     <br></br>
-                    <input
-                        type="submit"
-                        value="Sign In"
-                        className="submitButton"
-                        disabled={disabled}
-                    />
-                </form>
+                    <div onClick={() => SignIn()} className="buttonDesign">
+                        Register me!
+                    </div>
+
+
+                </div>
             </div>
         </div>
     );
