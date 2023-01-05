@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Sportscenters.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { sportscenterData } from "./sportscenterSlice";
+import { sportscenterData } from "./sportscentersSlice";
 import { addBooking, bookingData } from "../User/UserBooking/bookingSlice";
 import { userData } from "../User/userSlice";
 import { useNavigate } from 'react-router-dom';
@@ -10,7 +10,7 @@ import axios from "axios";
 const Sportscenter = () => {
 
     const dispatch = useDispatch();
-    const selectedSportscenter = useSelector(bookingData);
+    const selectedSportscenter = useSelector(sportscenterData);
     const credentials = useSelector(userData);
     const navigate = useNavigate();
 

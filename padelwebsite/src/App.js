@@ -9,7 +9,7 @@ import Register from "./containers/User/Register/Register";
 import Sportscenter from "./containers/Sportscenters/Sportscenters";
 import Profile from "./containers/User/Profile/Profile";
 import UserSettings from "./containers/User/UserSettings/userSettings";
-import UserOrder from "./containers/User/UserOrder/UserOrder";
+import UserBooking from "./containers/User/UserBooking/UserBooking";
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
           <Route path="/sportscenter" element={<Sportscenter />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/userSettings" element={<UserSettings />} />
-          <Route path="/userOrder" element={<UserOrder />} />
+          <Route path="/userBooking" element={<UserBooking />} />
         </Routes>
       </BrowserRouter>
     </div>
