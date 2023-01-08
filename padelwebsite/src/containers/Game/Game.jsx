@@ -13,7 +13,7 @@ const Game = () => {
     const dispatch = useDispatch();
     const selectedGame = useSelector(gameData);
     const gamesrdx = selectedGame;
-    const title = selectedGame?.sportscenterSportscenterId;
+    const title = selectedGame?.details;
     const credentials = useSelector(userData);
     const navigate = useNavigate();
 
@@ -24,7 +24,7 @@ const Game = () => {
 
         console.log("AQUIESTANLOSDATOQUEBUSCO", selectedGame)
         if (games.length === 0) {
-            bringGamesbySportsCenter(title)
+            bringGamesbySportsCenter(selectedGame.details)
                 .then((games) => {
                     setGames(games);
                 })
@@ -33,8 +33,8 @@ const Game = () => {
     }, []);
 
 
-    
-    
+
+
     const email = credentials?.credentials?.email;
     const jwt = credentials?.credentials?.jwt;
     const body = { email, title };
@@ -60,17 +60,17 @@ const Game = () => {
         navigate("/");
     }
 
-    if (gamesrdx.length === 0) { return <div className="gameDesign">Este centro no tiene ningún partido activo</div>; }
-    else if (gamesrdx.length > 0) {
+    if (games.length === 0) { return <div className="gameDesign">Este centro no tiene ningún partido activo</div>; }
+    else if (games.length > 0) {
 
         return (
             <div className="containerDesign">
 
                 <div className="sportDesign">
-                    {gamesrdx.map((game) => {
+                    {games.map((game, index) => {
                         return (
                             <div
-                                
+                                key={index}
                                 className="gameShow">
                                 <div className='gamesNumber'>
                                     <p className='pGames'>Partido numero:</p>
@@ -89,18 +89,19 @@ const Game = () => {
                                     <p className='pGames'>Jugadores:</p>
                                     {game.players}
                                 </div>
-                                
+                                {credentials?.credentials?.jwt !== undefined &&
+
+                                    <div onClick={() => rentGame(body, jwt)} className='buttonDesign'>
+                                        Reservar partido
+                                    </div>
+
+                                }
+
                             </div>
                         );
                     })}
-                   
-                    {credentials?.credentials?.jwt !== undefined &&
 
-                        <div onClick={() => rentGame(body, jwt)} className='buttonDesign'>
-                            Reservar partido
-                        </div>
 
-                    }
 
                     <div onClick={() => returnHome()} className='buttonDesign'>
                         Volver a Home

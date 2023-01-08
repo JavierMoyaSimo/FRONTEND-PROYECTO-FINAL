@@ -49,9 +49,10 @@ const UserBooking = () => {
             <div className="containerDesign">
 
                 <div className="orderDesign">
-                    {bookings.map((booking) => {
+                    {bookings.map((booking, index) => {
                         return (
                             <div
+                                key={index}
                                 onClick={() => returnHome(booking)}
                                 className="orderShow">
                                 <div className='moviesNumber'>
@@ -76,9 +77,10 @@ const UserBooking = () => {
             <div className="containerDesign">
 
                 <div className="orderDesign">
-                    {bookings.map((booking) => {
+                    {bookings.map((booking, index) => {
                         return (
                             <div
+                                key={index}
                                 onClick={() => returnHome(booking)}
                                 className="orderShow">
                                 <div className='moviesNumber'>
