@@ -42,7 +42,7 @@ const UserBooking = () => {
     }
 
     if (bookings.length === 0) {
-        return <div className="orderDesign">You do not have any booking in progress</div>;
+        return <div className="orderDesign">No tienes ningún partido reservado</div>;
     } else if (bookings.length > 0) {
 
         return (
@@ -55,7 +55,7 @@ const UserBooking = () => {
                                 onClick={() => returnHome(booking)}
                                 className="orderShow">
                                 <div className='moviesNumber'>
-                                    <p className='pMovies'>Game number:</p>
+                                    <p className='pMovies'>Partido número:</p>
                                     {booking.gameGameId}
 
                                 </div>
@@ -75,16 +75,17 @@ const UserBooking = () => {
 
             <div className="containerDesign">
 
-                <div className="homeDesign">
+                <div className="orderDesign">
                     {bookings.map((booking) => {
                         return (
                             <div
                                 onClick={() => returnHome(booking)}
-                                className="movieShow">
-                                <img
-                                    className="moviePic"
-                                    src={booking.image}
-                                />
+                                className="orderShow">
+                                <div className='moviesNumber'>
+                                    <p className='pMovies'>Partido número:</p>
+                                    {booking.gameGameId}
+
+                                </div>
                             </div>
                         );
                     })}

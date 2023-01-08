@@ -49,7 +49,7 @@ const Sportscenter = () => {
                 {credentials?.credentials?.jwt !== undefined &&
 
                     <div onClick={() => watchMe(title)} className='buttonDesign'>
-                        Watch sportscenter games
+                        Ver partidos 
                     </div>
 
                 }

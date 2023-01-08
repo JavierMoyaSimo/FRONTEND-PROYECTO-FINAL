@@ -63,8 +63,8 @@ export const bringBookings = async (user, jwt) => {
 };
 
 
-export const bringGamesbySportsCenter = async (sportscenter) => {    
-  let res = await axios.get(dataBase + "/games" + sportscenter);
+export const bringGamesbySportsCenter = async (title) => {    
+  let res = await axios.get(dataBase + "/games/games/" + title);
 
   return res.data;
 };

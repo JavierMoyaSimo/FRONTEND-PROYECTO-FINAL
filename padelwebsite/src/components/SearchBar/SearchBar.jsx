@@ -48,7 +48,7 @@ const SearchBar = () => {
         <div className='divInputDesign'>
             <div className="search-box">
                 <button className="btn-search"><i className="fas fa-search"></i></button>
-                <input type="text" name="criteria" className="input-search" placeholder="Insert province to search for sportscenters..." onChange={(e) => criteriaHandler(e)} />
+                <input type="text" name="criteria" className="input-search" placeholder="Introduzca provincia para buscar polideportivo..." onChange={(e) => criteriaHandler(e)} />
             </div>
 
         </div>

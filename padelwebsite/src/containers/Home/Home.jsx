@@ -39,7 +39,7 @@ const Home = () => {
     };
 
     if (sportscenters.length === 0) {
-        return <div className="homeDesign">soy Home</div>;
+        return <div className="homeDesign">Ha habido un error</div>;
     } else if (sportscentersFromRdx.details.length > 0) {
 
 
@@ -49,7 +49,7 @@ const Home = () => {
             <div className="containerDesign">
 
                 <SearchBar />
-                <h1 className="titleDesign">Click and enter to see the available matches for your sports center!</h1>
+                <h1 className="titleDesign">¡Haz clic y entra para ver los partidos disponibles para tu centro deportivo!</h1>
                 <div className="homeDesign">
                     {sportscentersFromRdx.details.map((sportscenter, index) => {
                         return (
@@ -81,7 +81,7 @@ const Home = () => {
             <div className="containerDesign">
 
                 <SearchBar />
-                <h1 className="titleDesign">Click and enter to see the available matches for your sports center!</h1>
+                <h1 className="titleDesign">¡Haz clic y entra para ver los partidos disponibles para tu centro deportivo!</h1>
                 <div className="homeDesign">
                     {sportscenters.map((sportscenter, index) => {
                         return (

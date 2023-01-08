@@ -103,7 +103,7 @@ const Login = () => {
   return (
     <div className="loginDesign">
       <div className="inputsContainer">
-        <h1 className="loginTittleDesign">PLEASE, FILL IN THE FIELDS TO LOGIN</h1>
+        <h1 className="loginTittleDesign">POR FAVOR, RELLENE LOS CAMPOS PARA INICIAR SESIÓN</h1>
         <div>
           <input
             type="email"
@@ -145,6 +145,7 @@ const Login = () => {
       <div onClick={() => logMe(user)} className="buttonDesign">
         Login me!
       </div>
+      
     </div>
   );
 };

@@ -155,9 +155,9 @@ const UserSettings = () => {
                 <div className="settingsBoxDesign">
 
 
-                    <h1 className="updateTittleDesign">Update your credentials</h1>
+                    <h1 className="updateTittleDesign">Actualice sus credenciales</h1>
                     <div className="formSquare2">
-                        <p>NAME</p>
+                        <p>NOMBRE</p>
                         <input
                             type="text"
                             name="name"
@@ -167,7 +167,7 @@ const UserSettings = () => {
                             onChange={inputHandler}
                             onInput={(e) => errorHandler(e.target.name, e.target.value, "text")}
                         />
-                        <p>Phone:</p>
+                        <p>TELÉFONO:</p>
                         <input
                             type="text"
                             name="phone"
@@ -180,7 +180,7 @@ const UserSettings = () => {
                             }
                         />
                         <div className="errorInput">{userError.phoneError}</div>
-                        <p>Password:</p>
+                        <p>CONTRASEÑA:</p>
                         <div className="updateInputs inputContainer">
                             <input
                                 className="inputDesign passwordInput"
@@ -200,7 +200,7 @@ const UserSettings = () => {
                             )}
                         </div>
                         <div className="errorInput">{userError.passwordError}</div>
-                        <p>Repeat Your Password:</p>
+                        <p>REPITE TU CONTRASEÑA:</p>
                         <input
                             type="password"
                             name="password2"
@@ -222,12 +222,12 @@ const UserSettings = () => {
 
                             <p>
 
-                                I'm sure that i want to change that
+                               Estoy seguro de que qiero modificar mis datos
                             </p>
                         </div>
                         <br></br>
                         <div onClick={() => updateUser()} className="buttonDesign">
-                            Update now!
+                            Actualizar ahora!
                         </div>
 
 
@@ -236,22 +236,22 @@ const UserSettings = () => {
                 <div className="settingsBoxDesign">
 
 
-                    <h1 className="updateTittleDesign">Admin Settings</h1>
+                    <h1 className="updateTittleDesign">Ajustes del Administrador</h1>
                     <div className="formSquare2">
                         <div className="eraseBox">
 
                             <input type="text" name="notEmail" className="eraseInput" placeholder="user Email" onChange={inputEraseHandler} />
-                            <div onClick={handleEraseSubmit}>Erase user</div>
+                            <div onClick={handleEraseSubmit}>Borrar usuario</div>
                         </div>
                         <br />
-                        User's List
+                        Usuarios
 
                         {users.map((user) => {
                             return (
                                 <div className="usersBoxDesign">
                                     Id: {user.id_user}
                                     <br />
-                                    User: {user.name}{user.surname}
+                                    Usuario: {user.name}{user.surname}
                                     <br />
                                     Email: {user.email}
                                     <br />
@@ -259,16 +259,16 @@ const UserSettings = () => {
                             )
                         })}
 
-                        Bookings List
+                        Reservas
 
                         {bookingsUsers.map((booking) => {
                             return (
                                 <div className="usersBoxDesign">
-                                    Booking Id: {booking.booking_id}
+                                    Id Reserva: {booking.booking_id}
                                     <br />
-                                    User's Booking Id {booking.userUserId}
+                                    Id Reserva - usuario {booking.userUserId}
                                     <br />
-                                    Game's Booking Id: {booking.gameGameId}
+                                    Id Reserva - partido: {booking.gameGameId}
                                     <br />
                                 </div>
                             )
@@ -291,9 +291,9 @@ const UserSettings = () => {
                 <div className="settingsBoxDesign">
 
 
-                    <h1 className="updateTittleDesign">Update your credentials</h1>
+                    <h1 className="updateTittleDesign">Actualice sus credenciales</h1>
                     <div  className="formSquare2">
-                        <p>NAME</p>
+                        <p>NOMBRE</p>
                         <input
                             type="text"
                             name="name"
@@ -304,7 +304,7 @@ const UserSettings = () => {
                             onInput={(e) => errorHandler(e.target.name, e.target.value, "text")}
                         />
                         
-                        <p>Phone:</p>
+                        <p>TELÉFONO:</p>
                         <input
                             type="text"
                             name="phone"
@@ -317,7 +317,7 @@ const UserSettings = () => {
                             }
                         />
                         <div className="errorInput">{userError.phoneError}</div>
-                        <p>Password:</p>
+                        <p>CONTRASEÑA:</p>
                         <div className="updateInputs inputContainer">
                             <input
                                 className="inputDesign passwordInput"
@@ -337,7 +337,7 @@ const UserSettings = () => {
                             )}
                         </div>
                         <div className="errorInput">{userError.passwordError}</div>
-                        <p>Repeat Your Password:</p>
+                        <p>REPITA SU CONTRASEÑA:</p>
                         <input
                             type="password"
                             name="password2"
@@ -359,12 +359,12 @@ const UserSettings = () => {
 
                             <p>
 
-                                I'm sure that i want to change that
+                            Estoy seguro de que qiero modificar mis datos
                             </p>
                         </div>
                         <br></br>
                         <div onClick={() => updateUser()} className="buttonDesign">
-                            Update now!
+                            Actualizar ahora!
                         </div>
                     </div>
                 </div >

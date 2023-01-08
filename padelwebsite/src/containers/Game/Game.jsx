@@ -12,6 +12,8 @@ const Game = () => {
 
     const dispatch = useDispatch();
     const selectedGame = useSelector(gameData);
+    const gamesrdx = selectedGame;
+    const title = selectedGame?.sportscenterSportscenterId;
     const credentials = useSelector(userData);
     const navigate = useNavigate();
 
@@ -20,6 +22,7 @@ const Game = () => {
 
     useEffect(() => {
 
+        console.log("AQUIESTANLOSDATOQUEBUSCO", selectedGame)
         if (games.length === 0) {
             bringGamesbySportsCenter(title)
                 .then((games) => {
@@ -30,8 +33,8 @@ const Game = () => {
     }, []);
 
 
-    const gamesrdx = selectedGame;
-    const title = selectedGame?.sportscenterSportscenterId;
+    
+    
     const email = credentials?.credentials?.email;
     const jwt = credentials?.credentials?.jwt;
     const body = { email, title };
@@ -57,7 +60,7 @@ const Game = () => {
         navigate("/");
     }
 
-    if (gamesrdx.length === 0) { return <div className="gameDesign">This sports center does not have any active games.</div>; }
+    if (gamesrdx.length === 0) { return <div className="gameDesign">Este centro no tiene ningún partido activo</div>; }
     else if (gamesrdx.length > 0) {
 
         return (

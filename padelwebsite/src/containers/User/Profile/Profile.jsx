@@ -23,10 +23,10 @@ const Profile = () => {
     return (
         <div className="menuDesign">
             <div className="menuButtonDesign" onClick={() => navigate("/userBooking")}>
-                Reserved games
+                Partidos reservados
             </div>
             <div className="menuButtonDesign" onClick={() => navigate("/userSettings")}>
-                User Settings
+                Ajustes de usuario
             </div>
             <div className="menuButtonDesign logOutDesign" onClick={logout}>
                 Log Out
