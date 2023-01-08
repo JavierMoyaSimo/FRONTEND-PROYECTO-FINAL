@@ -2,10 +2,10 @@ import React from 'react';
 import "./Sportscenters.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { sportscenterData } from "./sportscentersSlice";
-import { addBooking, bookingData } from "../User/UserBooking/bookingSlice";
+import { addGame } from "../Game/gamesSlice";
 import { userData } from "../User/userSlice";
 import { useNavigate } from 'react-router-dom';
-import axios from "axios";
+
 
 const Sportscenter = () => {
 
@@ -16,23 +16,19 @@ const Sportscenter = () => {
 
 
     const title = selectedSportscenter?.sportscenter_id;
-    const email = credentials?.credentials?.email;
-    const jwt = credentials?.credentials?.jwt;
-    const body = { email, title };
-    const dataBase = "http://localhost:3001";
+    // const email = credentials?.credentials?.email;
+    // const jwt = credentials?.credentials?.jwt;
+    // const body = { email, title };
+    // const dataBase = "http://localhost:3001";
 
-    const watchMe = async (body, jwt) => {
+    const watchMe = (title) => {
 
-        let res = await axios.post(dataBase + "/orders/newOrderMovie", body, {
-            headers: { Authorization: `Bearer ${jwt}` },
-        });
+        dispatch(addGame({ ...title, details: title }));
 
-
-        dispatch(addBooking({ bookings: res.data.resp }));
-        navigate("/userBooking")
-        return res;
-
-    }
+        setTimeout(() => {
+            navigate("/game");
+        }, 750);
+    };
 
 
 
@@ -44,17 +40,20 @@ const Sportscenter = () => {
     if (selectedSportscenter?.sportscenter_id !== undefined) {
 
         return (
-            <div className="filmDesign">
+            <div className="sportDesign">
                 {selectedSportscenter?.sportscenter_id}
-                <img className="filmPic" src={selectedSportscenter?.image} />
+                <img className="sportPic" src={selectedSportscenter?.image} />
+                {selectedSportscenter?.description}
+
 
                 {credentials?.credentials?.jwt !== undefined &&
 
-                    <div onClick={() => watchMe(body, jwt)} className='buttonDesign'>
+                    <div onClick={() => watchMe(title)} className='buttonDesign'>
                         Watch sportscenter games
                     </div>
 
                 }
+
                 <div onClick={() => returnHome()} className='buttonDesign'>
                     Volver a Home
                 </div>
@@ -64,7 +63,7 @@ const Sportscenter = () => {
 
     } else {
         return (
-            <div className="filmDesign">
+            <div className="sportDesign">
                 <div>Ha Habido un error</div>
                 <div onClick={() => returnHome()} className='buttonDesign'>
                     Volver a Home

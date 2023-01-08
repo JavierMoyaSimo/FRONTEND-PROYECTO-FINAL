@@ -30,7 +30,7 @@
     display: none;
   }
   
-  .movieShow {
+  .sportscenterShow {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,14 +40,14 @@
     z-index: 2;
   }
   
-  .moviePic {
+  .sportscenterPic {
     width: 7em;
     transition: 0.3s;
     border: 1px black solid;
     border-radius: 1em;
   }
   
-  .moviePic:hover {
+  .sportscenterPic:hover {
     height: 16em;
     width: 9em;
     transition: 0.3s;

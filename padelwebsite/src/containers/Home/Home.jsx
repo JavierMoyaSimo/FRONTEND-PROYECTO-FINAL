@@ -49,18 +49,18 @@ const Home = () => {
             <div className="containerDesign">
 
                 <SearchBar />
-                <h1 className="titleDesign">Click and enter to book your game!</h1>
+                <h1 className="titleDesign">Click and enter to see the available matches for your sports center!</h1>
                 <div className="homeDesign">
-                    {sportscentersFromRdx.details.map((sportscenter) => {
+                    {sportscentersFromRdx.details.map((sportscenter, index) => {
                         return (
                             <div
+                                key={index}
                                 onClick={() => clickedSportscenter(sportscenter)}
-                                className="movieShow">
+                                className="sportscenterShow">
                                 <img
-                                    className="moviePic"
+                                    className="sportscenterPic"
                                     src={sportscenter.image}
                                 />
-                                {/* <p className="pOfHome">{sportscenter.articleIdArticle}</p> */}
 
                             </div>
                         );
@@ -81,18 +81,19 @@ const Home = () => {
             <div className="containerDesign">
 
                 <SearchBar />
-                <h1 className="titleDesign">Click and enter to book your game!</h1>
+                <h1 className="titleDesign">Click and enter to see the available matches for your sports center!</h1>
                 <div className="homeDesign">
-                    {sportscenters.map((sportscenter) => {
+                    {sportscenters.map((sportscenter, index) => {
                         return (
                             <div
+                                key={index}
                                 onClick={() => clickedSportscenter(sportscenter)}
-                                className="movieShow">
+                                className="sportscenterShow">
                                 <img
-                                    className="moviePic"
+                                    className="sportscenterPic"
                                     src={sportscenter.image}
                                 />
-                                {/* <p className="pOfHome">{sportscenter.articleIdArticle}</p> */}
+                                
                             </div>
                         );
                     })}

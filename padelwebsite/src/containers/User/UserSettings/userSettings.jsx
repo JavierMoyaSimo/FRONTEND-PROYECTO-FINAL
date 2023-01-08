@@ -60,9 +60,9 @@ const UserSettings = () => {
         }).catch((error) => console.error(error))
     }
 
-    //bringing orders from api
+    //bringing bookings from api
     const updateBookingsUsers = () => {
-        bringUserBooking(jwt).then((bookingsUsers) => {
+        bringUserBooking(notEmail,jwt).then((bookingsUsers) => {
             setBookingsUsers(bookingsUsers);
 
         }).catch((error) => console.error(error))

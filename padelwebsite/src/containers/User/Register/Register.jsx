@@ -46,7 +46,7 @@ const Register = () => {
                 password: user.password,
                 phone: user.phone,
                 dni: user.dni,
-                rolIdrol: "user"
+                roleRoleId: "user"
             });
 
             signIn();
