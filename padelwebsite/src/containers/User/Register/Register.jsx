@@ -40,7 +40,7 @@ const Register = () => {
     const SignIn = async () => {
         try {
 
-            let signIn = await axios.post(dataBase + "auth/register", {
+            let resultado = await axios.post(dataBase + "auth/register", {
                 name: user.name,
                 email: user.email,
                 password: user.password,
@@ -48,13 +48,19 @@ const Register = () => {
                 dni: user.dni,
                 roleRoleId: "user"
             });
+            if (resultado) {
+                console.log("Registro completado con exito")
+              } else
 
-            signIn();
+            setTimeout(() => {
+
+                navigate("/login");
+              }, 300);
 
 
 
         } catch (error) {
-            console.error('Sign up failed')
+            console.error('Registro fallido')
         }
 
 

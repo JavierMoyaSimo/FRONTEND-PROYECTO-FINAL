@@ -12,8 +12,9 @@ const Game = () => {
 
     const dispatch = useDispatch();
     const selectedGame = useSelector(gameData);
-    const gamesrdx = selectedGame;
+    // const gamesrdx = selectedGame;
     const title = selectedGame?.details;
+    // const idgameid = selectedGame?.details.game_id
     const credentials = useSelector(userData);
     const navigate = useNavigate();
 
@@ -34,15 +35,18 @@ const Game = () => {
 
 
 
-
+    // const gameId = game.game_id;
     const email = credentials?.credentials?.email;
     const jwt = credentials?.credentials?.jwt;
+    const idgameid = games.game_id
     const body = { email, title };
+    const body2 = { email, idgameid }
     const dataBase = "http://localhost:3001";
 
-    const rentGame = async (body, jwt) => {
+    const rentGame = async (body2, jwt) => {
+        console.log(games, "estossonlosgames");
 
-        let res = await axios.post(dataBase + "/bookings/newBooking", body, {
+        let res = await axios.post(dataBase + "/bookings/newBooking", body2, {
             headers: { Authorization: `Bearer ${jwt}` },
         });
 
@@ -91,7 +95,7 @@ const Game = () => {
                                 </div>
                                 {credentials?.credentials?.jwt !== undefined &&
 
-                                    <div onClick={() => rentGame(body, jwt)} className='buttonDesign'>
+                                    <div onClick={() => rentGame(body2, jwt)} className='buttonDesign'>
                                         Reservar partido
                                     </div>
 

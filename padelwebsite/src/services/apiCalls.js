@@ -32,8 +32,8 @@ export const bringUsers = async (jwt) => {
   return res.data;
 };
 
-export const bringUserBooking = async (notMail,jwt) => {
-  let res = await axios.get(dataBase + "/bookings/bookings" + notMail, {   // ESTE HAY QUE REVISARLO
+export const bringUserBooking = async (jwt) => {
+  let res = await axios.get(dataBase + "/bookings/" , {   
     headers: { Authorization: `Bearer ${jwt}` },
   });
 

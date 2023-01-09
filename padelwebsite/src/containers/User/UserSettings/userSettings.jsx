@@ -5,6 +5,7 @@ import EyeIcon from "../../../components/icons/EyeIcon";
 import EyeSlashIcon from "../../../components/icons/EyeSlashIcon";
 import { useSelector, useDispatch } from "react-redux";
 import { userData, login } from "../userSlice";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./userSettings.scss";
 
@@ -13,6 +14,7 @@ import "./userSettings.scss";
 const UserSettings = () => {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const dataBase = "http://localhost:3001/";
 
@@ -25,7 +27,7 @@ const UserSettings = () => {
         name: userReduxCredentials?.credentials?.name,
         email: userReduxCredentials?.credentials?.email,
         phone: userReduxCredentials?.credentials?.phone,
-        dni: userReduxCredentials?.credentials?.dni,
+        // dni: userReduxCredentials?.credentials?.dni,
         password: "",
         password2: "",
     });
@@ -34,7 +36,7 @@ const UserSettings = () => {
         nameError: "",
         emailError: "",
         phoneError: "",
-        dniError: "",
+        // dniError: "",
         passwordError: "",
         password2Error: "",
     });
@@ -62,7 +64,7 @@ const UserSettings = () => {
 
     //bringing bookings from api
     const updateBookingsUsers = () => {
-        bringUserBooking(notEmail,jwt).then((bookingsUsers) => {
+        bringUserBooking(jwt).then((bookingsUsers) => {
             setBookingsUsers(bookingsUsers);
 
         }).catch((error) => console.error(error))
@@ -93,7 +95,7 @@ const UserSettings = () => {
     const updateUser = async () => {
         try {
 
-            let updateIt = await axios.put(dataBase + "users/updateUser/" + userReduxCredentials?.credentials?.email,
+            let resultado = await axios.put(dataBase + "users/updateUser/" + userReduxCredentials?.credentials?.email,
                 {
                     name: user.name,
                     password: user.password,
@@ -105,11 +107,17 @@ const UserSettings = () => {
                     headers: { Authorization: `Bearer ${jwt}` },
                 })
 
-            updateIt()
-            dispatch(login({ credentials: "" }));
+            setTimeout(() => {
+
+                navigate("/");
+            }, 600);
+
+            dispatch(login({ credentials: ""}));
+            console.log("Actualización de datos realizada con éxito", resultado)
+            console.log("Esto es el resultat que busco pa actualisar", resultado.config.data)
 
         } catch (error) {
-            console.error('Registro fallido')
+            console.error(' FALLOOO')
         }
 
     };
@@ -222,7 +230,7 @@ const UserSettings = () => {
 
                             <p>
 
-                               Estoy seguro de que qiero modificar mis datos
+                                Por seguridad, se cerrará sesión cuando actualice su usuario. Por favor, revise los datos y acepte.
                             </p>
                         </div>
                         <br></br>
@@ -246,12 +254,14 @@ const UserSettings = () => {
                         <br />
                         Usuarios
 
-                        {users.map((user) => {
+                        {users.map((user, index) => {
                             return (
-                                <div className="usersBoxDesign">
-                                    Id: {user.id_user}
+                                <div
+                                    key={index}
+                                    className="usersBoxDesign">
+                                    Id: {user.user_id}
                                     <br />
-                                    Usuario: {user.name}{user.surname}
+                                    Usuario: {user.name}
                                     <br />
                                     Email: {user.email}
                                     <br />
@@ -261,9 +271,11 @@ const UserSettings = () => {
 
                         Reservas
 
-                        {bookingsUsers.map((booking) => {
+                        {bookingsUsers.map((booking, index) => {
                             return (
-                                <div className="usersBoxDesign">
+                                <div
+                                    key={index}
+                                    className="usersBoxDesign">
                                     Id Reserva: {booking.booking_id}
                                     <br />
                                     Id Reserva - usuario {booking.userUserId}
@@ -283,6 +295,144 @@ const UserSettings = () => {
         );
 
     }
+    // else if (userReduxCredentials?.credentials?.roleRoleId === "sportscenteradmin") {
+    //     return (
+    //         <div className="settingsViewDesign">
+
+
+    //             <div className="settingsBoxDesign">
+
+
+    //                 <h1 className="updateTittleDesign">Actualice sus credenciales</h1>
+    //                 <div className="formSquare2">
+    //                     <p>NOMBRE</p>
+    //                     <input
+    //                         type="text"
+    //                         name="name"
+    //                         value={user.name}
+    //                         className="updateInputs"
+    //                         placeholder="Name"
+    //                         onChange={inputHandler}
+    //                         onInput={(e) => errorHandler(e.target.name, e.target.value, "text")}
+    //                     />
+    //                     <p>TELÉFONO:</p>
+    //                     <input
+    //                         type="text"
+    //                         name="phone"
+    //                         className="updateInputs"
+    //                         value={user.phone}
+    //                         placeholder="Phone Number"
+    //                         onChange={inputHandler}
+    //                         onInput={(e) =>
+    //                             errorHandler(e.target.name, e.target.value, "phone")
+    //                         }
+    //                     />
+    //                     <div className="errorInput">{userError.phoneError}</div>
+    //                     <p>CONTRASEÑA:</p>
+    //                     <div className="updateInputs inputContainer">
+    //                         <input
+    //                             className="inputDesign passwordInput"
+    //                             type={passwordShown ? "text" : "password"}
+    //                             name="password"
+    //                             value={user.password}
+    //                             placeholder="Password"
+    //                             onChange={inputHandler}
+    //                             onInput={(e) =>
+    //                                 errorHandler(e.target.name, e.target.value, "password")
+    //                             }
+    //                         />
+    //                         {passwordShown ? (
+    //                             <EyeSlashIcon classes="eyeIcon" onClick={togglePassword} />
+    //                         ) : (
+    //                             <EyeIcon classes="eyeIcon" onClick={togglePassword} />
+    //                         )}
+    //                     </div>
+    //                     <div className="errorInput">{userError.passwordError}</div>
+    //                     <p>REPITE TU CONTRASEÑA:</p>
+    //                     <input
+    //                         type="password"
+    //                         name="password2"
+    //                         className="updateInputs"
+    //                         value={user.password2}
+    //                         placeholder="Repeat your password"
+    //                         onChange={inputHandler}
+    //                         onInput={(e) =>
+    //                             errorHandler(e.target.name, e.target.value, "password")
+    //                         }
+    //                     />
+    //                     <div className="errorInput">{userError.password2Error}</div>
+    //                     <div className="adviseDesign">
+    //                         <input
+    //                             type="checkbox"
+    //                             defaultChecked={acceptedTerms}
+    //                             onChange={() => setAcceptedTerms(!acceptedTerms)}
+    //                         />
+
+    //                         <p>
+
+    //                             Estoy seguro de que qiero modificar mis datos
+    //                         </p>
+    //                     </div>
+    //                     <br></br>
+    //                     <div onClick={() => updateUser()} className="buttonDesign">
+    //                         Actualizar ahora!
+    //                     </div>
+
+
+    //                 </div>
+    //             </div >
+    //             <div className="settingsBoxDesign">
+
+
+    //                 <h1 className="updateTittleDesign">PARTIDOS </h1>
+    //                 <div className="formSquare2">
+    //                     <div className="eraseBox">
+
+    //                         <input type="text" name="games" className="eraseInput" placeholder="user Email" onChange={inputEraseHandler} />
+    //                         <div onClick={handleEraseSubmit}>Borrar usuario</div>
+    //                     </div>
+    //                     <br />
+    //                     Usuarios
+
+    //                     {users.map((user, index) => {
+    //                         return (
+    //                             <div
+    //                                 key={index}
+    //                                 className="usersBoxDesign">
+    //                                 Id: {user.id_user}
+    //                                 <br />
+    //                                 Usuario: {user.name}{user.surname}
+    //                                 <br />
+    //                                 Email: {user.email}
+    //                                 <br />
+    //                             </div>
+    //                         )
+    //                     })}
+
+    //                     Reservas
+
+    //                     {bookingsUsers.map((booking, index) => {
+    //                         return (
+    //                             <div
+    //                                 key={index}
+    //                                 className="usersBoxDesign">
+    //                                 Id Reserva: {booking.booking_id}
+    //                                 <br />
+    //                                 Id Reserva - usuario {booking.userUserId}
+    //                                 <br />
+    //                                 Id Reserva - partido: {booking.gameGameId}
+    //                                 <br />
+    //                             </div>
+    //                         )
+    //                     })}
+
+    //                 </div>
+    //             </div>
+    //         </div>
+
+
+
+    //     );}
     else {
         return (
             <div className="settingsViewDesign">
@@ -292,7 +442,7 @@ const UserSettings = () => {
 
 
                     <h1 className="updateTittleDesign">Actualice sus credenciales</h1>
-                    <div  className="formSquare2">
+                    <div className="formSquare2">
                         <p>NOMBRE</p>
                         <input
                             type="text"
@@ -303,7 +453,7 @@ const UserSettings = () => {
                             onChange={inputHandler}
                             onInput={(e) => errorHandler(e.target.name, e.target.value, "text")}
                         />
-                        
+
                         <p>TELÉFONO:</p>
                         <input
                             type="text"
@@ -359,7 +509,7 @@ const UserSettings = () => {
 
                             <p>
 
-                            Estoy seguro de que qiero modificar mis datos
+                                Estoy seguro de que qiero modificar mis datos
                             </p>
                         </div>
                         <br></br>

@@ -2,7 +2,7 @@ export const errorCheck = (value, type) => {
     switch (type) {
         case "text":
             if (!/[a-z]/gi.test(value)) {
-                return "*No valid format, please use characters";
+                return "*Formato no válido, por favor use caracteres";
             } else {
                 return "";
             }
@@ -13,19 +13,14 @@ export const errorCheck = (value, type) => {
                     value
                 )
             ) {
-                return "Email incorrect format";
+                return "Formato incorrecto de email.";
             } else {
                 return "";
             }
 
-        case "age":
-            if (!/[0-9]/gi.test(value)) {
-                return "*Please, add your age.";
-            }
-
         case "phone":
             if (!/(?=.*?[0-9])/.test(value)) {
-                return "Incorrect format, only numbers.";
+                return "Formato incorrecto, solo números";
             } else {
                 return "";
             }
@@ -33,29 +28,29 @@ export const errorCheck = (value, type) => {
         case "password":
         case "password2":
             if (value.length < 8) {
-                return "Write 8 characters at least";
+                return "Escribe al menos 8 caracteres";
             } else {
                 //Checking the password format....
 
                 if (!/[\d()+-]/g.test(value)) {
-                    return "*Write at least one number, one lowercase letter, and one uppercase letter.";
+                    return "*Escribe al menos un número, una letra minúscula y una letra mayúscula.";
                 } else {
                     return "";
                 }
             }
-        case "address":
+        case "dni":
             if (
-                !/[a-zA-Z0-9]/gi.test(
+                !/^[0-9]{8,8}[A-Za-z]$/gi.test(
                     value
                 ) /*&& /["!@#$%^&*()+=-\\\';,./{}|\":<>?]/gi.test(value)*/
             ) {
-                return "*Do not use special characters, please.";
+                return "*Por favor, introduzca su número y letra del DNI";
             } else {
                 return "";
             }
 
         default:
-            console.log("Some errors have not been taken into account");
+            console.log("Algunos errores no se han tenido en cuenta");
 
             break;
     }
