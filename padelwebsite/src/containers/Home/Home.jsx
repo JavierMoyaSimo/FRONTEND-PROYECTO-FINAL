@@ -53,16 +53,24 @@ const Home = () => {
                 <div className="homeDesign">
                     {sportscentersFromRdx.details.map((sportscenter, index) => {
                         return (
-                            <div
-                                key={index}
-                                onClick={() => clickedSportscenter(sportscenter)}
-                                className="sportscenterShow">
-                                <img
-                                    className="sportscenterPic"
-                                    src={sportscenter.image}
-                                />
+                            <div>
 
+                                <div
+                                    key={index}
+                                    onClick={() => clickedSportscenter(sportscenter)}
+                                    className="sportscenterShow">
+                                    <div>
+                                        {sportscenter.sportscenter_id}
+                                    </div>
+
+                                    <img
+                                        className="sportscenterPic"
+                                        src={sportscenter.image}
+                                    />
+
+                                </div>
                             </div>
+
                         );
                     })}
                 </div>
@@ -85,16 +93,23 @@ const Home = () => {
                 <div className="homeDesign">
                     {sportscenters.map((sportscenter, index) => {
                         return (
-                            <div
-                                key={index}
-                                onClick={() => clickedSportscenter(sportscenter)}
-                                className="sportscenterShow">
-                                <img
-                                    className="sportscenterPic"
-                                    src={sportscenter.image}
-                                />
-                                
+
+                            <div>
+                                <div
+                                    key={index}
+                                    onClick={() => clickedSportscenter(sportscenter)}
+                                    className="sportscenterShow">
+                                    <div>
+                                        {sportscenter.sportscenter_id}
+                                    </div>
+                                    <img
+                                        className="sportscenterPic"
+                                        src={sportscenter.image}
+                                    />
+
+                                </div>
                             </div>
+
                         );
                     })}
                 </div>
