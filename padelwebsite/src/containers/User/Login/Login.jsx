@@ -32,6 +32,7 @@ const Login = () => {
   const [userError, setUserError] = useState({
     emailError: "",
     passwordError: "",
+    loginError: "",
   });
 
 
@@ -73,22 +74,26 @@ const Login = () => {
         password: user.password
       });
 
-
-      if (resultado.data.message === "Password or email is incorrect") {
-        console.error("Usuario o contraseña incorrecto")
-      } else {
-
-        dispatch(login({ credentials: resultado.data }));
-
-        setTimeout(() => {
-
-          navigate("/profile");
-        }, 300);
+      if (resultado.data == "Password or email is incorrect") {
+        userError.loginError = "Email o contraseña no coinciden"
+        setUserError(userError)
       }
+
+
+      dispatch(login({ credentials: resultado.data }));
+
+      setTimeout(() => {
+
+        navigate("/profile");
+      }, 300);
+
+
 
     } catch (error) {
 
       console.error(error)
+      userError.loginError = "Email o contraseña no coinciden"
+      setUserError(userError)
 
     }
 
@@ -142,10 +147,14 @@ const Login = () => {
         </div>
         <div className="errorMessage">{userError.passwordError}</div>
       </div>
-      <div onClick={() => logMe(user)} className="buttonDesign">
-        Login me!
+      <div>
+        <div onClick={() => logMe(user)} className="buttonDesign">
+          Login me!
+        </div>
+        <div className="errorMessage">{userError.loginError}</div>
       </div>
-      
+
+
     </div>
   );
 };

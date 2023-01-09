@@ -41,20 +41,22 @@
   }
   
   .sportscenterPic {
-    width: 7em;
-    transition: 0.3s;
+    height: 10em;
+    width: 17em;
+    transition: all 1s;
     border: 1px black solid;
     border-radius: 1em;
   }
   
   .sportscenterPic:hover {
     height: 16em;
-    width: 9em;
+    width: 20em;
     transition: 0.3s;
     z-index: 1 !important;
     border: 2px black solid;
     border-radius: 0.5em;
     margin: 0.5em;
+    opacity: 50%;
   }
   
   .titleDesign {

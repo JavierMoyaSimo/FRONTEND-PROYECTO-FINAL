@@ -28,6 +28,7 @@ const Register = () => {
         password2Error: "",
         phoneError: "",
         dniError: "",
+        registerError: "",
 
     });
 
@@ -50,17 +51,19 @@ const Register = () => {
             });
             if (resultado) {
                 console.log("Registro completado con exito")
-              } else
+            } else
 
-            setTimeout(() => {
+                setTimeout(() => {
 
-                navigate("/login");
-              }, 300);
+                    navigate("/login");
+                }, 300);
 
 
 
         } catch (error) {
             console.error('Registro fallido')
+            userError.registerError = "Registro fallido, revise todos los campos"
+            setUserError(userError)
         }
 
 
@@ -189,9 +192,13 @@ const Register = () => {
                         </p>
                     </div>
                     <br></br>
-                    <div onClick={() => SignIn()} className="buttonDesign">
-                        Register me!
+                    <div>
+                        <div onClick={() => SignIn()} className="buttonDesign">
+                            Registrarme!
+                        </div>
+                        <div className="errorInput">{userError.registerError}</div>
                     </div>
+
 
 
                 </div>

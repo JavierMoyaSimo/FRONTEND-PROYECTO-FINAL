@@ -89,7 +89,7 @@ const Home = () => {
             <div className="containerDesign">
 
                 <SearchBar />
-                <h1 className="titleDesign">¡Haz clic y entra para ver los partidos disponibles para tu centro deportivo!</h1>
+                <h1 className="titleDesign">¡Haz clic y entra para ver los partidos disponibles de tu centro deportivo!</h1>
                 <div className="homeDesign">
                     {sportscenters.map((sportscenter, index) => {
                         return (
