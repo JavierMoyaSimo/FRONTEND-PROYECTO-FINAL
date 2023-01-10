@@ -23,9 +23,19 @@ const Header = () => {
 
         return (
             <div className='headerDesign'>
-                <div onClick={() => navigate("/")} className="linkDesign">Home</div>
-                {/* <div className='titleDesign1' onClick={() => navigate('/')}>Pop-up Films</div> */}
-                <div onClick={() => navigate("/profile")} className="linkDesign">{userReduxCredentials?.credentials?.name}</div>
+                <div className='headerCenter'>
+                    <div className='propadel'>PROPADEL</div>
+                </div>
+
+                <div className='headerLeft'>
+                    <div className='titleDesign1' onClick={() => navigate('/')}>Home</div>
+                </div>
+
+                <div className='headerRight'>
+                    <div onClick={() => navigate("/profile")} className="linkDesign">{userReduxCredentials?.credentials?.name}</div>
+                </div>
+
+
             </div>
         )
     } else {
@@ -33,10 +43,21 @@ const Header = () => {
 
         return (
             <div className='headerDesign'>
+                <div className='headerCenter'>
+                    <div className='propadel'>PROPADEL</div>
+                </div>
 
-                <div onClick={() => navigate('/login')} className="linkDesign">Login</div>
-                <div className='titleDesign1' onClick={() => navigate('/')}>Home</div>
-                <div onClick={() => navigate('/register')} className="linkDesign">Register</div>
+                <div className='headerLeft'>
+                    <div className='titleDesign1' onClick={() => navigate('/')}>Home</div>
+                </div>
+
+                <div className='headerRight'>
+                    <div onClick={() => navigate('/login')} className="linkDesign">Login</div>
+
+                    <div onClick={() => navigate('/register')} className="linkDesign">Register</div>
+                </div>
+
+
             </div>
         )
     }
