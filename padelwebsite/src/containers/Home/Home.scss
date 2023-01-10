@@ -9,7 +9,7 @@
     height: 90vh;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(38 38 38);
+    background-color: rgb(173, 214, 212);
   }
   
   .homeDesign {
@@ -21,7 +21,7 @@
     align-items: center;
     margin-top: 3em;
     color: white;
-    background-color: rgb(38 38 38);
+    background-color: rgb(173, 214, 212);
     justify-content: center;
     overflow-x: hidden;
   }
@@ -38,6 +38,7 @@
     margin: 6em 1em 0 1em;
     height: 11em;
     z-index: 2;
+    
   }
   
   .sportscenterPic {
@@ -61,10 +62,17 @@
   
   .titleDesign {
     margin: 1em 0 0 0;
-    color: white;
+    color: rgb(32, 168, 93);
     z-index: 4;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
   
   .pOfHome {
     color: white;
+  }
+
+  .idsportscenter{
+    color: rgb(32, 168, 93);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
   }

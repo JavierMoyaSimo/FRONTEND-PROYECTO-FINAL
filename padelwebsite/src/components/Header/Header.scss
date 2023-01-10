@@ -67,7 +67,9 @@
 // }
 
 .linkDesign {
-    margin: 0.4em,
+    padding: 0.4em;
+    cursor: pointer;
+
 }
 
 .titleDesign1 {
@@ -77,10 +79,11 @@
     border-radius: 0.5em;
     background-color: rgb(37, 146, 117);
     margin-bottom: 0.1em;
+    cursor: pointer;
 }
 
 .headerLeft {
-    margin: 2em;
+    padding: 2em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,14 +91,14 @@
 
 
 .headerRight {
-    margin: 2em;
+    padding: 2em;
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
 .propadel {
-    margin: 2em;
+    padding: 2em;
     font-style: italic;
     color: green;
 }

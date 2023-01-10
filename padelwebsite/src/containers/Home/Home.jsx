@@ -59,7 +59,7 @@ const Home = () => {
                                     key={index}
                                     onClick={() => clickedSportscenter(sportscenter)}
                                     className="sportscenterShow">
-                                    <div>
+                                    <div className="idsportscenter">
                                         {sportscenter.sportscenter_id}
                                     </div>
 
@@ -99,7 +99,7 @@ const Home = () => {
                                     key={index}
                                     onClick={() => clickedSportscenter(sportscenter)}
                                     className="sportscenterShow">
-                                    <div>
+                                    <div className="idsportscenter">
                                         {sportscenter.sportscenter_id}
                                     </div>
                                     <img
