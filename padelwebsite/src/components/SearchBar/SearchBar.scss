@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(28, 28, 28, 0);
+    background-color: rgba(154, 26, 26, 0);
     font-family: "Lato" !important;
   }
   
@@ -33,15 +33,15 @@
     transition: all 0.7s ease-in-out;
     background: linear-gradient(
       0deg,
-      rgba(255, 255, 255, 0.085) 0%,
-      rgba(255, 255, 255, 0) 100%
+      rgba(6, 0, 0, 0.085) 0%,
+      rgba(27, 2, 2, 0) 100%
     );
     padding-right: 1em;
-    color: #fff;
+    color: rgb(15, 2, 2);
     text-align: center;
   }
   .input-search::placeholder {
-    color: rgba(255, 255, 255, 0.619);
+    color: rgba(22, 1, 1, 0.619);
     font-size: 18px;
     letter-spacing: 2px;
     font-weight: 100;
@@ -57,7 +57,7 @@
     border-radius: 50%;
     position: absolute;
     right: 0px;
-    color: #ffffff;
+    color: #0e0101;
     background-color: transparent;
     pointer-events: painted;
   }
