@@ -188,12 +188,12 @@ const Register = () => {
                         />
                         <p>
 
-                            He leido la <i>politica</i> de <i>privacidad</i> de la empresa{" "}
+                            He leido la <span className="privacity">politica</span> de <span className="privacity">privacidad</span> de la empresa{" "}
                         </p>
                     </div>
                     <br></br>
-                    <div>
-                        <div onClick={() => SignIn()} className="buttonDesign">
+                    <div className="buttoncenter">
+                        <div onClick={() => SignIn()} className="buttonssDesign">
                             Registrarme!
                         </div>
                         <div className="errorInput">{userError.registerError}</div>

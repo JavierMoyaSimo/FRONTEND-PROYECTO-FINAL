@@ -3,7 +3,8 @@
     padding: 0;
   }
   .registerTittleDesign {
-    color: white;
+    color: rgb(32, 168, 93);
+    
   }
   
   .registerAdviseDesign {
@@ -31,8 +32,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
-    background-color: rgb(38 38 38);
+    color: rgb(32, 168, 93);
+    background-color: rgb(173, 214, 212);
   }
   
   .registerInputs {
@@ -116,4 +117,12 @@
     color: red;
     font-weight: 600;
   }
+
+  .buttoncenter {
+    display: flex;
+    justify-content: center;
+  }
   
+  .privacity {
+    color: black;
+  }

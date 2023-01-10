@@ -40,7 +40,7 @@ const Sportscenter = () => {
     if (selectedSportscenter?.sportscenter_id !== undefined) {
 
         return (
-            <div className="sportDesign">
+            <div className="sportsDesigns">
                 {selectedSportscenter?.sportscenter_id}
                 <img className="sportPic" src={selectedSportscenter?.image} />
                 {selectedSportscenter?.description}
@@ -48,13 +48,13 @@ const Sportscenter = () => {
 
                 {credentials?.credentials?.jwt !== undefined &&
 
-                    <div onClick={() => watchMe(title)} className='buttonDesign'>
+                    <div onClick={() => watchMe(title)} className='buttonssDesign'>
                         Ver partidos 
                     </div>
 
                 }
 
-                <div onClick={() => returnHome()} className='buttonDesign'>
+                <div onClick={() => returnHome()} className='buttonssDesign'>
                     Volver a Home
                 </div>
 
@@ -63,9 +63,9 @@ const Sportscenter = () => {
 
     } else {
         return (
-            <div className="sportDesign">
+            <div className="sportsDesigns">
                 <div>Ha Habido un error</div>
-                <div onClick={() => returnHome()} className='buttonDesign'>
+                <div onClick={() => returnHome()} className='buttonssDesign'>
                     Volver a Home
                 </div>
 

@@ -7,15 +7,15 @@
     justify-content: center;
     align-items: center;
   
-    color: white;
-    background-color: rgb(38 38 38);
+    color: rgb(32, 168, 93);
+    background-color: rgb(173, 214, 212);
   }
   
   .loginTittleDesign {
-    color: white;
+    color: rgb(32, 168, 93);
   }
   
-  .buttonDesign {
+  .buttonssDesign {
     height: 2.5em;
     width: 7.5em;
   
@@ -27,17 +27,17 @@
     margin: 0.5em 0 0 0;
     border: 2px solid white;
     border-radius: 1em;
-    background-color: aqua;
+    background-color: rgb(37, 146, 117);
     color: rgb(255, 255, 255);
     cursor: pointer;
     font-weight: 500;
   }
   
-  .buttonDesign:hover {
+  .buttonssDesign:hover {
     transition: 0.2s;
     width: 14vw;
     transition: 0.2s width;
-    color: red;
+    color: rgba(231, 248, 248, 0.865);
     font-weight: 600;
   }
   
@@ -46,7 +46,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: rgb(248 250 252);
+    color: rgb(32, 168, 93);
     font-family: "Courier New", Courier, monospace;
     font-size: small;
   }

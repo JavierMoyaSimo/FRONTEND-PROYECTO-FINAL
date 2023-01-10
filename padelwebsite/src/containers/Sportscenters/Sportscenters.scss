@@ -1,4 +1,4 @@
-.sportDesign {
+.sportsDesigns {
     height: 90vh;
     width: 100vw;
 
@@ -20,7 +20,7 @@
     width: 15em;
 }
 
-.buttonDesign {
+.buttonssDesign {
     height: 2.5em;
     width: 7.5em;
 
@@ -32,16 +32,16 @@
     margin: 0.5em 0 0 0;
     border: 2px solid white;
     border-radius: 1em;
-    background-color: aqua;
+    background-color: rgb(37, 146, 117);
     color: rgb(255, 255, 255);
     cursor: pointer;
     font-weight: 500;
 }
 
-.buttonDesign:hover {
+.buttonssDesign:hover {
     transition: 0.2s;
     width: 14vw;
     transition: 0.2s width;
-    color: red;
+    color: rgba(231, 248, 248, 0.865);
     font-weight: 600;
 }

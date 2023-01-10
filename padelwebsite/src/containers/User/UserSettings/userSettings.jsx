@@ -234,7 +234,7 @@ const UserSettings = () => {
                             </p>
                         </div>
                         <br></br>
-                        <div onClick={() => updateUser()} className="buttonDesign">
+                        <div onClick={() => updateUser()} className="buttonssDesign">
                             Actualizar ahora!
                         </div>
 
@@ -513,7 +513,7 @@ const UserSettings = () => {
                             </p>
                         </div>
                         <br></br>
-                        <div onClick={() => updateUser()} className="buttonDesign">
+                        <div onClick={() => updateUser()} className="buttonssDesign">
                             Actualizar ahora!
                         </div>
                     </div>

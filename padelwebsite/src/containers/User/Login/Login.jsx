@@ -148,7 +148,7 @@ const Login = () => {
         <div className="errorMessage">{userError.passwordError}</div>
       </div>
       <div>
-        <div onClick={() => logMe(user)} className="buttonDesign">
+        <div onClick={() => logMe(user)} className="buttonssDesign">
           Login me!
         </div>
         <div className="errorMessage">{userError.loginError}</div>

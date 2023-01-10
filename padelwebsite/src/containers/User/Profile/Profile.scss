@@ -4,7 +4,8 @@
     font-family: "Courier New", Courier, monospace;
   }
   .menuDesign {
-    background-color: rgb(24 24 27);
+    color: rgb(32, 168, 93);
+    background-color: rgb(173, 214, 212);
     height: 90vh;
     width: 100vw;
     display: flex;
@@ -18,7 +19,8 @@
     height: 4em;
     width: 18em;
     margin: 1em 0;
-    color: white;
+    color: rgb(32, 168, 93);
+    background-color: rgb(203 213 225);
     border-top: 2px solid white;
     border-bottom: 2px solid white;
     align-items: center;
@@ -27,7 +29,7 @@
   }
   
   .logOutDesign {
-    background-color: rgb(203 213 225);
+    background-color: rgba(187, 106, 212, 0.148);
     color: rgb(15 23 42);
   }
   
