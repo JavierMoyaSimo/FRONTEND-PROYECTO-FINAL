@@ -12,13 +12,13 @@ export const registerUser = async (user) => {
   return res;
 };
 
-export const bringSportscenters = async () => {    // ESTO ANTES ERA bringMovies
+export const bringSportscenters = async () => {    
   let res = await axios.get(dataBase + "/sportscenters");
 
   return res.data;
 };
 
-export const searchSportscenters = async (criteria) => {   // ESTO ANTES ERA searchMovies
+export const searchSportscenters = async (criteria) => {   
   let res = await axios.get(dataBase + "/sportscenters/province/" + criteria);
 
   return res.data;

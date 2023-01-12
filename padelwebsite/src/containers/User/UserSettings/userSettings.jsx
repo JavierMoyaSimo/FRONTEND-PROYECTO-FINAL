@@ -107,13 +107,15 @@ const UserSettings = () => {
                     headers: { Authorization: `Bearer ${jwt}` },
                 })
 
-            setTimeout(() => {
+            // setTimeout(() => {
 
-                navigate("/");
-            }, 600);
+            //     navigate("/");
+            // }, 600);
 
-            dispatch(login({ credentials: ""}));
-            console.log("Actualización de datos realizada con éxito", resultado)
+            //ESTO DE AQUI HAY QUE REVISARLO
+            let save = resultado.data.config;
+            dispatch(login({ ...user, credentials: user }));
+            console.log("Actualización de datos realizada con éxito", userReduxCredentials)
             console.log("Esto es el resultat que busco pa actualisar", resultado.config.data)
 
         } catch (error) {

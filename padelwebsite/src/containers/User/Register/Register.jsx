@@ -51,19 +51,29 @@ const Register = () => {
             });
             if (resultado) {
                 console.log("Registro completado con exito")
-            } else
-
                 setTimeout(() => {
 
                     navigate("/login");
                 }, 300);
 
+            } else {
+                console.log("ESTE ES EL ELSE")
+
+                userError.registerError = "Registro fallido, revise todos los campos"
+                setUserError(userError)
+
+                document.getElementById("regerror").innerHTML = `${userError.registerError}`;
+            }
+
+
 
 
         } catch (error) {
             console.error('Registro fallido')
+
             userError.registerError = "Registro fallido, revise todos los campos"
             setUserError(userError)
+            document.getElementById("regerror").innerHTML = `${userError.registerError}`;
         }
 
 
@@ -106,13 +116,13 @@ const Register = () => {
     return (
         <div className="registerDesign">
             <div className="formRegisterSquare">
-                <h1 className="registerTittleDesign">WELCOME</h1>
+                <h1 className="registerTittleDesign">BIENVENID@!</h1>
                 <div >
                     <input
                         type="text"
                         name="name"
                         className="registerInputs"
-                        placeholder="Name"
+                        placeholder="Nombre"
                         required
                         onChange={inputHandler}
                         onInput={(e) => errorHandler(e.target.name, e.target.value, "text")}
@@ -133,7 +143,7 @@ const Register = () => {
                         type="text"
                         name="phone"
                         className="registerInputs"
-                        placeholder="Phone Number"
+                        placeholder="Teléfono"
                         onChange={inputHandler}
                         onInput={(e) =>
                             errorHandler(e.target.name, e.target.value, "phone")
@@ -155,7 +165,7 @@ const Register = () => {
                             className="inputDesign passwordInput"
                             type={passwordShown ? "text" : "password"}
                             name="password"
-                            placeholder="Password"
+                            placeholder="Contraseña"
                             onChange={inputHandler}
                             onInput={(e) =>
                                 errorHandler(e.target.name, e.target.value, "password")
@@ -172,7 +182,7 @@ const Register = () => {
                         type="password"
                         name="password2"
                         className="registerInputs"
-                        placeholder="Repeat your password"
+                        placeholder="Repita su contraseña"
                         onChange={inputHandler}
                         onInput={(e) =>
                             errorHandler(e.target.name, e.target.value, "password")
@@ -190,13 +200,14 @@ const Register = () => {
 
                             He leido la <span className="privacity">politica</span> de <span className="privacity">privacidad</span> de la empresa{" "}
                         </p>
+
                     </div>
                     <br></br>
                     <div className="buttoncenter">
                         <div onClick={() => SignIn()} className="buttonssDesign">
                             Registrarme!
                         </div>
-                        <div className="errorInput">{userError.registerError}</div>
+                        <div id="regerror" className="errorInput"></div>
                     </div>
 
 
