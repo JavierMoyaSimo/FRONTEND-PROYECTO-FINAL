@@ -77,6 +77,7 @@ const Login = () => {
       if (resultado.data == "Password or email is incorrect") {
         userError.loginError = "Email o contraseña no coinciden"
         setUserError(userError)
+        document.getElementById("logerror").innerHTML = `${userError.loginError}`;
       }
 
 
@@ -94,6 +95,7 @@ const Login = () => {
       console.error(error)
       userError.loginError = "Email o contraseña no coinciden"
       setUserError(userError)
+      document.getElementById("logerror").innerHTML = `${userError.loginError}`;
 
     }
 
@@ -151,7 +153,7 @@ const Login = () => {
         <div onClick={() => logMe(user)} className="buttonssDesign">
           Login me!
         </div>
-        <div className="errorMessage">{userError.loginError}</div>
+        <div id="logerror" className="errorMessage"></div>
       </div>
 
 

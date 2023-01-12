@@ -44,16 +44,47 @@ const Game = () => {
     const dataBase = "http://localhost:3001";
 
     const rentGame = async (body2, jwt) => {
+
         console.log(games, "estossonlosgames");
+        console.log(games.game_id, "estosGAMESIDS")
+        console.log(body2.game.game_id, "ESTE ES EL BODY2")
+        let game_id = body2.game.game_id;
 
-        let res = await axios.post(dataBase + "/bookings/newBooking", body2, {
-            headers: { Authorization: `Bearer ${jwt}` },
-        });
+
+        try {
+
+            let res = await axios.post(dataBase + "/bookings/newBooking", { email, game_id }, {
+                headers: { Authorization: `Bearer ${jwt}` },
+            });
 
 
-        dispatch(addBooking({ bookings: res.data.resp }));
-        navigate("/userBooking")
-        return res;
+            console.log(res.data.message, "jdghfisdgfldfgsdñfs")
+            if (res.data.message === "No se ha realizado la reserva,  este partido ya ha sido reservado") {
+                document.getElementById("reserror").innerHTML = "";
+                setTimeout(() => {
+                    document.getElementById("reserror").innerHTML = `No se ha realizado la reserva, el partido con identificador número ${game_id} ya ha sido reservado`;
+                }, 500);
+                // document.getElementById("reserror").innerHTML = "No se ha realizado la reserva,  este partido ya ha sido reservado";
+            }
+
+            else {
+                document.getElementById("reserror").innerHTML = "";
+                dispatch(addBooking({ bookings: res.data.resp }));
+                navigate("/userBooking")
+                return res;
+            }
+
+
+        }
+
+        catch (err) {
+            console.error(err);
+
+        }
+
+
+
+
 
     }
 
@@ -93,13 +124,18 @@ const Game = () => {
                                     <p className='pGames'>Jugadores:</p>
                                     {game.players}
                                 </div>
-                                {credentials?.credentials?.jwt !== undefined &&
 
-                                    <div onClick={() => rentGame(body2, jwt)} className='buttonDesign'>
-                                        Reservar partido
-                                    </div>
+                                {credentials?.credentials?.jwt !== undefined &&
+                                    <>
+                                        <div onClick={() => rentGame({ game, email }, jwt)} className='buttonssDesign'>
+                                            Reservar partido
+                                        </div>
+
+
+                                    </>
 
                                 }
+
 
                             </div>
                         );
@@ -107,9 +143,10 @@ const Game = () => {
 
 
 
-                    <div onClick={() => returnHome()} className='buttonDesign'>
+                    <div onClick={() => returnHome()} className='buttonssDesign'>
                         Volver a Home
                     </div>
+                    <div id="reserror"></div>
 
                 </div>
             </div>
@@ -120,7 +157,7 @@ const Game = () => {
         return (
             <div className="sportDesign">
                 <div>Ha Habido un error</div>
-                <div onClick={() => returnHome()} className='buttonDesign'>
+                <div onClick={() => returnHome()} className='buttonssDesign'>
                     Volver a Home
                 </div>
 

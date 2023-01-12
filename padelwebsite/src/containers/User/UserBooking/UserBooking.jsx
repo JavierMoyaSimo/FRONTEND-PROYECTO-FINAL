@@ -58,6 +58,7 @@ const UserBooking = () => {
                                 <div className='moviesNumber'>
                                     <p className='pMovies'>Partido número:</p>
                                     {booking.gameGameId}
+                                    
 
                                 </div>
                             </div>
