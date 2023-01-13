@@ -107,16 +107,17 @@ const UserSettings = () => {
                     headers: { Authorization: `Bearer ${jwt}` },
                 })
 
-            // setTimeout(() => {
 
-            //     navigate("/");
-            // }, 600);
 
             //ESTO DE AQUI HAY QUE REVISARLO
-            let save = resultado.data.config;
+
             dispatch(login({ ...user, credentials: user }));
             console.log("Actualización de datos realizada con éxito", userReduxCredentials)
             console.log("Esto es el resultat que busco pa actualisar", resultado.config.data)
+
+
+            navigate("/");
+
 
         } catch (error) {
             console.error(' FALLOOO')
@@ -232,13 +233,21 @@ const UserSettings = () => {
 
                             <p>
 
-                                Por seguridad, se cerrará sesión cuando actualice su usuario. Por favor, revise los datos y acepte.
+                                Por seguridad, se cerrará sesión cuando actualice su usuario y se redirigirá a Home.
+                                Por favor, revise los datos y acepte.
                             </p>
                         </div>
                         <br></br>
-                        <div onClick={() => updateUser()} className="buttonssDesign">
-                            Actualizar ahora!
-                        </div>
+
+                        {acceptedTerms === true &&
+
+                            <div onClick={() => updateUser()} className="buttonssDesign">
+                                Actualizar ahora!
+                            </div>
+
+                        }
+
+
 
 
                     </div>
@@ -515,9 +524,15 @@ const UserSettings = () => {
                             </p>
                         </div>
                         <br></br>
-                        <div onClick={() => updateUser()} className="buttonssDesign">
-                            Actualizar ahora!
-                        </div>
+
+
+                        {acceptedTerms === true &&
+
+                            <div onClick={() => updateUser()} className="buttonssDesign">
+                                Actualizar ahora!
+                            </div>
+
+                        }
                     </div>
                 </div >
             </div>

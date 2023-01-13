@@ -53,7 +53,6 @@ const UserBooking = () => {
                         return (
                             <div
                                 key={index}
-                                onClick={() => returnHome(booking)}
                                 className="orderShow">
                                 <div className='moviesNumber'>
                                     <p className='pMovies'>Partido número:</p>
