@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { errorCheck } from "../../../services/errorManage";
-import { bringUsers, eraseUser, bringUserBooking, bringGames, eraseGame } from "../../../services/apiCalls"
+import { bringUsers, eraseUser, bringUserBooking, bringGames, eraseGame, createGame } from "../../../services/apiCalls"
 import EyeIcon from "../../../components/icons/EyeIcon";
 import EyeSlashIcon from "../../../components/icons/EyeSlashIcon";
 import { useSelector, useDispatch } from "react-redux";
@@ -137,6 +137,53 @@ const UserSettings = () => {
 
     };
 
+    // let bodygame = {
+    //     type: games.type,
+    //     players: games.players,
+    //     date: games.date,
+    //     sportscenterSportscenterId: games.sportscenterSportscenterId,
+    // }
+
+    // --------------------------------------------------------------------------------------------------------
+    // const NewGame = async (bodygame, jwt) => {
+
+    //     createGame(bodygame, jwt)
+        // try {
+
+        //     console.log(games, "ESTOSSONGAMESENNEWGAME");
+
+        //     let resultado = await axios.post(dataBase + "games/newGame", {
+        //         type: games.type,
+        //         players: games.players,
+        //         date: games.date,
+        //         sportscenterSportscenterId: games.sportscenterSportscenterId,
+
+        //     }, );
+        //     if (resultado) {
+        //         console.log("PARTIDO CREADO CON EXITO")
+
+        //         updateGames();
+        //     } else {
+        //         console.log("ESTE ES EL ELSE")
+
+        //         userError.registerError = "No se ha creado el partido"
+
+        //     }
+
+
+
+
+        // } catch (error) {
+        //     console.error('Creacion fallida')
+
+
+        // }
+
+
+
+
+    // };
+    // --------------------------------------------------------------------------------------------------------
 
     //bringing users from ap
 
@@ -167,7 +214,7 @@ const UserSettings = () => {
                 eraseGame(notGame, jwt);
             }
 
-            
+
             updateGames();
 
         } catch (error) {
@@ -458,9 +505,58 @@ const UserSettings = () => {
                         })}
 
                         Crear Nuevo partido
+                        {/* -------------------------------------------------------------------------- */}
                         <div >
 
+                            <div >
+                                <input
+                                    type="text"
+                                    name="type"
+                                    placeholder="Tipo"
+                                    required
+                                    onChange={inputHandler}
+
+                                />
+
+                                <input
+                                    type="text"
+                                    name="players"
+                                    placeholder="Nº jugadores"
+                                    onChange={inputHandler}
+
+                                />
+
+                                <input
+                                    type="text"
+                                    name="date"
+                                    placeholder="Fecha formato: AAAA-MM-DD hh:mm:ss"
+                                    onChange={inputHandler}
+
+                                />
+
+                                <input
+                                    type="text"
+                                    name="sportscenterId"
+                                    placeholder="Polideportivo ID"
+                                    required
+                                    onChange={inputHandler}
+
+                                />
+
+
+                                <br></br>
+                                <div className="buttoncenter">
+                                    {/* <div onClick={() => NewGame()} className="buttonssDesign">
+                                        Crear partido!
+                                    </div> */}
+
+                                </div>
+
+
+
+                            </div>
                         </div>
+                        {/* -------------------------------------------------------------------------- */}
 
 
                     </div>
