@@ -292,7 +292,7 @@ const UserSettings = () => {
                         <div className="eraseBox">
 
                             <input type="text" name="notEmail" className="eraseInput" placeholder="user Email" onChange={inputEraseHandler} />
-                            <div onClick={handleEraseSubmit}>Borrar usuario</div>
+                            <div onClick={handleEraseSubmit} className="cursorok">Borrar usuario</div>
                         </div>
                         <br />
                         Usuarios
@@ -436,7 +436,7 @@ const UserSettings = () => {
                         <div className="eraseBox">
 
                             <input type="text" name="games" className="eraseInput" placeholder="Id del partido" onChange={gameEraseHandler} />
-                            <div onClick={handleEraseGame}>Borrar partido</div>
+                            <div onClick={handleEraseGame} className="cursorok">Borrar partido</div>
                         </div>
                         <br />
                         Partidos
