@@ -12,13 +12,13 @@ export const registerUser = async (user) => {
   return res;
 };
 
-export const bringSportscenters = async () => {    
+export const bringSportscenters = async () => {
   let res = await axios.get(dataBase + "/sportscenters");
 
   return res.data;
 };
 
-export const searchSportscenters = async (criteria) => {   
+export const searchSportscenters = async (criteria) => {
   let res = await axios.get(dataBase + "/sportscenters/province/" + criteria);
 
   return res.data;
@@ -33,7 +33,7 @@ export const bringUsers = async (jwt) => {
 };
 
 export const bringUserBooking = async (jwt) => {
-  let res = await axios.get(dataBase + "/bookings/" , {   
+  let res = await axios.get(dataBase + "/bookings/", {
     headers: { Authorization: `Bearer ${jwt}` },
   });
 
@@ -63,8 +63,26 @@ export const bringBookings = async (user, jwt) => {
 };
 
 
-export const bringGamesbySportsCenter = async (details) => {    
+export const bringGamesbySportsCenter = async (details) => {
   let res = await axios.get(dataBase + "/games/games/" + details);
-  
+
+  return res.data;
+};
+
+export const bringGames = async (jwt) => {
+  let res = await axios.get(dataBase + "/games", {
+    headers: { Authorization: `Bearer ${jwt}` },
+  });
+
+
+  return res.data;
+};
+
+
+export const eraseGame = async (notGame, jwt) => {
+  let res = await axios.delete(dataBase + "/games/deleteGame/" + notGame, {
+    headers: { Authorization: `Bearer ${jwt}` },
+  });
+
   return res.data;
 };

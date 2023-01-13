@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { errorCheck } from "../../../services/errorManage";
-import { bringUsers, eraseUser, bringUserBooking } from "../../../services/apiCalls"
+import { bringUsers, eraseUser, bringUserBooking, bringGames, eraseGame } from "../../../services/apiCalls"
 import EyeIcon from "../../../components/icons/EyeIcon";
 import EyeSlashIcon from "../../../components/icons/EyeSlashIcon";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,6 +8,8 @@ import { userData, login } from "../userSlice";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./userSettings.scss";
+
+import { gameData, addGame } from "../../Game/gamesSlice";
 
 
 
@@ -19,6 +21,7 @@ const UserSettings = () => {
     const dataBase = "http://localhost:3001/";
 
     const userReduxCredentials = useSelector(userData);
+    const gamesFromRedux = useSelector(gameData);
 
     const jwt = userReduxCredentials?.credentials?.jwt;
 
@@ -27,7 +30,6 @@ const UserSettings = () => {
         name: userReduxCredentials?.credentials?.name,
         email: userReduxCredentials?.credentials?.email,
         phone: userReduxCredentials?.credentials?.phone,
-        // dni: userReduxCredentials?.credentials?.dni,
         password: "",
         password2: "",
     });
@@ -36,10 +38,12 @@ const UserSettings = () => {
         nameError: "",
         emailError: "",
         phoneError: "",
-        // dniError: "",
         passwordError: "",
         password2Error: "",
     });
+
+    const [games, setGames] = useState([]);
+    const [notGame, setNotGame] = useState("");
 
     const [notEmail, setNotEmail] = useState("");
 
@@ -54,6 +58,13 @@ const UserSettings = () => {
     const [bookingsUsers, setBookingsUsers] = useState([]);
     const [users, setUsers] = useState([]);
 
+
+    //bringing games from api
+    const updateGames = () => {
+        bringGames(jwt).then((games) => {
+            setGames(games);
+        }).catch((error) => console.error(error))
+    }
 
     //bringing users from api
     const updateUsers = () => {
@@ -73,6 +84,7 @@ const UserSettings = () => {
     useEffect(() => {
         updateUsers()
         updateBookingsUsers()
+        updateGames();
     }, [])
 
     const inputHandler = (e) => {
@@ -81,8 +93,16 @@ const UserSettings = () => {
             [e.target.name]: e.target.value,
         })
     };
+
     const inputEraseHandler = (e) => {
         setNotEmail(
+            e.target.value
+        )
+
+    };
+
+    const gameEraseHandler = (e) => {
+        setNotGame(
             e.target.value
         )
 
@@ -107,17 +127,9 @@ const UserSettings = () => {
                     headers: { Authorization: `Bearer ${jwt}` },
                 })
 
-
-
-            //ESTO DE AQUI HAY QUE REVISARLO
-
             dispatch(login({ ...user, credentials: user }));
-            console.log("Actualización de datos realizada con éxito", userReduxCredentials)
-            console.log("Esto es el resultat que busco pa actualisar", resultado.config.data)
-
 
             navigate("/");
-
 
         } catch (error) {
             console.error(' FALLOOO')
@@ -143,6 +155,26 @@ const UserSettings = () => {
             console.error(error)
         };
     }
+
+    //-----------------------------------------------------------------------------------------------------
+    // bringing games from ap
+
+    const handleEraseGame = () => {
+        try {
+
+            if (notGame !== gamesFromRedux?.details?.game_id) {
+
+                eraseGame(notGame, jwt);
+            }
+
+            
+            updateGames();
+
+        } catch (error) {
+            console.error(error)
+        };
+    }
+    //-----------------------------------------------------------------------------------------------------
 
     const errorHandler = (field, value, type) => {
         let error = "";
@@ -306,144 +338,139 @@ const UserSettings = () => {
         );
 
     }
-    // else if (userReduxCredentials?.credentials?.roleRoleId === "sportscenteradmin") {
-    //     return (
-    //         <div className="settingsViewDesign">
+    else if (userReduxCredentials?.credentials?.roleRoleId === "sportscenteradmin") {
+        return (
+            <div className="settingsViewDesign">
 
 
-    //             <div className="settingsBoxDesign">
+                <div className="settingsBoxDesign">
 
 
-    //                 <h1 className="updateTittleDesign">Actualice sus credenciales</h1>
-    //                 <div className="formSquare2">
-    //                     <p>NOMBRE</p>
-    //                     <input
-    //                         type="text"
-    //                         name="name"
-    //                         value={user.name}
-    //                         className="updateInputs"
-    //                         placeholder="Name"
-    //                         onChange={inputHandler}
-    //                         onInput={(e) => errorHandler(e.target.name, e.target.value, "text")}
-    //                     />
-    //                     <p>TELÉFONO:</p>
-    //                     <input
-    //                         type="text"
-    //                         name="phone"
-    //                         className="updateInputs"
-    //                         value={user.phone}
-    //                         placeholder="Phone Number"
-    //                         onChange={inputHandler}
-    //                         onInput={(e) =>
-    //                             errorHandler(e.target.name, e.target.value, "phone")
-    //                         }
-    //                     />
-    //                     <div className="errorInput">{userError.phoneError}</div>
-    //                     <p>CONTRASEÑA:</p>
-    //                     <div className="updateInputs inputContainer">
-    //                         <input
-    //                             className="inputDesign passwordInput"
-    //                             type={passwordShown ? "text" : "password"}
-    //                             name="password"
-    //                             value={user.password}
-    //                             placeholder="Password"
-    //                             onChange={inputHandler}
-    //                             onInput={(e) =>
-    //                                 errorHandler(e.target.name, e.target.value, "password")
-    //                             }
-    //                         />
-    //                         {passwordShown ? (
-    //                             <EyeSlashIcon classes="eyeIcon" onClick={togglePassword} />
-    //                         ) : (
-    //                             <EyeIcon classes="eyeIcon" onClick={togglePassword} />
-    //                         )}
-    //                     </div>
-    //                     <div className="errorInput">{userError.passwordError}</div>
-    //                     <p>REPITE TU CONTRASEÑA:</p>
-    //                     <input
-    //                         type="password"
-    //                         name="password2"
-    //                         className="updateInputs"
-    //                         value={user.password2}
-    //                         placeholder="Repeat your password"
-    //                         onChange={inputHandler}
-    //                         onInput={(e) =>
-    //                             errorHandler(e.target.name, e.target.value, "password")
-    //                         }
-    //                     />
-    //                     <div className="errorInput">{userError.password2Error}</div>
-    //                     <div className="adviseDesign">
-    //                         <input
-    //                             type="checkbox"
-    //                             defaultChecked={acceptedTerms}
-    //                             onChange={() => setAcceptedTerms(!acceptedTerms)}
-    //                         />
+                    <h1 className="updateTittleDesign">Actualice sus credenciales</h1>
+                    <div className="formSquare2">
+                        <p>NOMBRE</p>
+                        <input
+                            type="text"
+                            name="name"
+                            value={user.name}
+                            className="updateInputs"
+                            placeholder="Name"
+                            onChange={inputHandler}
+                            onInput={(e) => errorHandler(e.target.name, e.target.value, "text")}
+                        />
+                        <p>TELÉFONO:</p>
+                        <input
+                            type="text"
+                            name="phone"
+                            className="updateInputs"
+                            value={user.phone}
+                            placeholder="Phone Number"
+                            onChange={inputHandler}
+                            onInput={(e) =>
+                                errorHandler(e.target.name, e.target.value, "phone")
+                            }
+                        />
+                        <div className="errorInput">{userError.phoneError}</div>
+                        <p>CONTRASEÑA:</p>
+                        <div className="updateInputs inputContainer">
+                            <input
+                                className="inputDesign passwordInput"
+                                type={passwordShown ? "text" : "password"}
+                                name="password"
+                                value={user.password}
+                                placeholder="Password"
+                                onChange={inputHandler}
+                                onInput={(e) =>
+                                    errorHandler(e.target.name, e.target.value, "password")
+                                }
+                            />
+                            {passwordShown ? (
+                                <EyeSlashIcon classes="eyeIcon" onClick={togglePassword} />
+                            ) : (
+                                <EyeIcon classes="eyeIcon" onClick={togglePassword} />
+                            )}
+                        </div>
+                        <div className="errorInput">{userError.passwordError}</div>
+                        <p>REPITE TU CONTRASEÑA:</p>
+                        <input
+                            type="password"
+                            name="password2"
+                            className="updateInputs"
+                            value={user.password2}
+                            placeholder="Repeat your password"
+                            onChange={inputHandler}
+                            onInput={(e) =>
+                                errorHandler(e.target.name, e.target.value, "password")
+                            }
+                        />
+                        <div className="errorInput">{userError.password2Error}</div>
+                        <div className="adviseDesign">
+                            <input
+                                type="checkbox"
+                                defaultChecked={acceptedTerms}
+                                onChange={() => setAcceptedTerms(!acceptedTerms)}
+                            />
 
-    //                         <p>
+                            <p>
 
-    //                             Estoy seguro de que qiero modificar mis datos
-    //                         </p>
-    //                     </div>
-    //                     <br></br>
-    //                     <div onClick={() => updateUser()} className="buttonDesign">
-    //                         Actualizar ahora!
-    //                     </div>
+                                Estoy seguro de que qiero modificar mis datos
+                            </p>
+                        </div>
+                        <br></br>
+
+                        {acceptedTerms === true &&
+
+                            <div onClick={() => updateUser()} className="buttonssDesign">
+                                Actualizar ahora!
+                            </div>
+
+                        }
+
+                    </div>
+                </div >
+                <div className="settingsBoxDesign">
 
 
-    //                 </div>
-    //             </div >
-    //             <div className="settingsBoxDesign">
+                    <h1 className="updateTittleDesign">PARTIDOS </h1>
+                    <div className="formSquare2">
+                        <div className="eraseBox">
+
+                            <input type="text" name="games" className="eraseInput" placeholder="Id del partido" onChange={gameEraseHandler} />
+                            <div onClick={handleEraseGame}>Borrar partido</div>
+                        </div>
+                        <br />
+                        Partidos
+
+                        {games.map((game, index) => {
+                            return (
+                                <div
+                                    key={index}
+                                    className="usersBoxDesign">
+                                    Id: {game.game_id}
+                                    <br />
+                                    Tipo: {game.type}
+                                    <br />
+                                    Fecha: {game.date}
+                                    <br />
+                                    Polideportivo: {game.sportscenterSportscenterId}
+                                </div>
+                            )
+                        })}
+
+                        Crear Nuevo partido
+                        <div >
+
+                        </div>
 
 
-    //                 <h1 className="updateTittleDesign">PARTIDOS </h1>
-    //                 <div className="formSquare2">
-    //                     <div className="eraseBox">
-
-    //                         <input type="text" name="games" className="eraseInput" placeholder="user Email" onChange={inputEraseHandler} />
-    //                         <div onClick={handleEraseSubmit}>Borrar usuario</div>
-    //                     </div>
-    //                     <br />
-    //                     Usuarios
-
-    //                     {users.map((user, index) => {
-    //                         return (
-    //                             <div
-    //                                 key={index}
-    //                                 className="usersBoxDesign">
-    //                                 Id: {user.id_user}
-    //                                 <br />
-    //                                 Usuario: {user.name}{user.surname}
-    //                                 <br />
-    //                                 Email: {user.email}
-    //                                 <br />
-    //                             </div>
-    //                         )
-    //                     })}
-
-    //                     Reservas
-
-    //                     {bookingsUsers.map((booking, index) => {
-    //                         return (
-    //                             <div
-    //                                 key={index}
-    //                                 className="usersBoxDesign">
-    //                                 Id Reserva: {booking.booking_id}
-    //                                 <br />
-    //                                 Id Reserva - usuario {booking.userUserId}
-    //                                 <br />
-    //                                 Id Reserva - partido: {booking.gameGameId}
-    //                                 <br />
-    //                             </div>
-    //                         )
-    //                     })}
-
-    //                 </div>
-    //             </div>
-    //         </div>
+                    </div>
+                </div>
+            </div>
 
 
 
-    //     );}
+        );
+    }
     else {
         return (
             <div className="settingsViewDesign">
