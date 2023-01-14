@@ -16,92 +16,59 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 const Header = () => {
 
 
-    const navigate = useNavigate();
-    const userReduxCredentials = useSelector(userData);
+  const navigate = useNavigate();
+  const userReduxCredentials = useSelector(userData);
 
 
 
 
-    if (userReduxCredentials?.credentials?.jwt !== undefined) {
+  if (userReduxCredentials?.credentials?.jwt !== undefined) {
 
 
-        return (
-          <Navbar bg="light" expand="lg">
-          <div className='container-fluid'>
-            <Navbar.Brand className='col-lg-3 col-md-2'>PROPADEL</Navbar.Brand>
-            <Nav.Link href="/" className='col-lg-6 col-md-8'>Home</Nav.Link>
-            <Navbar.Toggle aria-controls="basic-navbar-nav col-lg-3 col-md-2" />
-            <Navbar.Collapse id="basic-navbar-nav" className='align-right'>
-              <Nav className="me-auto align-right">                 
-                <NavDropdown title="Acceso" id="basic-nav-dropdown"  >
-                  <NavDropdown.Item href="/login">Login</NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="/register">
-                    Registro
-                  </NavDropdown.Item>
-                </NavDropdown>
-              </Nav>
-            </Navbar.Collapse>
-          </div>
-        </Navbar>
-            // <div className='headerDesign container'>
-            //     <div className='headerCenter col-3'>
-            //         <div className='propadel'>PROPADEL</div>
-            //     </div>
-
-            //     <div className='headerLeft col-4'>
-            //         <div className='titleDesign1 ' onClick={() => navigate('/')}>Home</div>
-            //     </div>
-
-            //     <div className='headerRight col-3'>
-            //         <div onClick={() => navigate("/profile")} className="linkDesign">{userReduxCredentials?.credentials?.name}</div>
-            //     </div>
+    return (
+      <Navbar bg="light" expand="lg">
+        <div className='container-fluid'>
+          <Navbar.Brand className='col-lg-3 col-md-2 homehome'>PROPADEL</Navbar.Brand>
+          <Nav.Link onClick={() => navigate("/")} className='col-lg-6 col-md-8 homehome'><button className='homebutton'>Home</button></Nav.Link>
+          <Navbar.Toggle aria-controls="basic-navbar-nav col-lg-3 col-md-2" />
+          <Navbar.Collapse id="basic-navbar-nav" className='align-right'>
 
 
-            // </div>
-        )
-    } else {
+            <div className='profilebuttonprofile' onClick={() => navigate("/profile")} >{userReduxCredentials?.credentials?.name}</div>
 
 
-        return (
-            <Navbar bg="light" expand="lg">
-            <div className='container-fluid'>
-              <Navbar.Brand className='col-lg-3 col-md-2'>PROPADEL</Navbar.Brand>
-              <Nav.Link href="/" className='col-lg-6 col-md-8'>Home</Nav.Link>
-              <Navbar.Toggle aria-controls="basic-navbar-nav col-lg-3 col-md-2" />
-              <Navbar.Collapse id="basic-navbar-nav" className='align-right'>
-                <Nav className="me-auto align-right">                 
-                  <NavDropdown title="Acceso" id="basic-nav-dropdown"  >
-                    <NavDropdown.Item href="/login">Login</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="/register">
-                      Registro
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </Nav>
-              </Navbar.Collapse>
-            </div>
-          </Navbar>
-        );
-            // <div className='headerDesign container'>
-            //     <div className='headerCenter col-3'>
-            //         <div className='propadel'>PROPADEL</div>
-            //     </div>
 
-            //     <div className='headerLeft col-4'>
-            //         <div className='titleDesign1' onClick={() => navigate('/')}>Home</div>
-            //     </div>
+          </Navbar.Collapse>
+        </div>
+      </Navbar >
 
-            //     <div className='headerRight col-3'>
-            //         <div onClick={() => navigate('/login')} className="linkDesign">Login</div>
-
-            //         <div onClick={() => navigate('/register')} className="linkDesign">Register</div>
-            //     </div>
+    )
+  } else {
 
 
-            // </div>
-        
-    }
+    return (
+      <Navbar bg="light" expand="lg">
+        <div className='container-fluid'>
+          <Navbar.Brand className='col-lg-3 col-md-2 homehome'>PROPADEL</Navbar.Brand>
+          <Nav.Link onClick={() => navigate("/")}className='col-lg-6 col-md-8 homehome'><button className='homebutton'>Home</button></Nav.Link>
+          <Navbar.Toggle aria-controls="basic-navbar-nav col-lg-3 col-md-2" />
+          <Navbar.Collapse id="basic-navbar-nav" className='align-right'>
+            <Nav className="me-auto align-right">
+              <NavDropdown title="Acceso" id="basic-nav-dropdown"  >
+                <NavDropdown.Item onClick={() => navigate("/login")}>Login</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item onClick={() => navigate("/register")}>
+                  Registro
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </div>
+      </Navbar>
+    );
+
+
+  }
 
 
 }

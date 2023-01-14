@@ -148,36 +148,36 @@ const UserSettings = () => {
     // const NewGame = async (bodygame, jwt) => {
 
     //     createGame(bodygame, jwt)
-        // try {
+    // try {
 
-        //     console.log(games, "ESTOSSONGAMESENNEWGAME");
+    //     console.log(games, "ESTOSSONGAMESENNEWGAME");
 
-        //     let resultado = await axios.post(dataBase + "games/newGame", {
-        //         type: games.type,
-        //         players: games.players,
-        //         date: games.date,
-        //         sportscenterSportscenterId: games.sportscenterSportscenterId,
+    //     let resultado = await axios.post(dataBase + "games/newGame", {
+    //         type: games.type,
+    //         players: games.players,
+    //         date: games.date,
+    //         sportscenterSportscenterId: games.sportscenterSportscenterId,
 
-        //     }, );
-        //     if (resultado) {
-        //         console.log("PARTIDO CREADO CON EXITO")
+    //     }, );
+    //     if (resultado) {
+    //         console.log("PARTIDO CREADO CON EXITO")
 
-        //         updateGames();
-        //     } else {
-        //         console.log("ESTE ES EL ELSE")
+    //         updateGames();
+    //     } else {
+    //         console.log("ESTE ES EL ELSE")
 
-        //         userError.registerError = "No se ha creado el partido"
+    //         userError.registerError = "No se ha creado el partido"
 
-        //     }
-
-
+    //     }
 
 
-        // } catch (error) {
-        //     console.error('Creacion fallida')
 
 
-        // }
+    // } catch (error) {
+    //     console.error('Creacion fallida')
+
+
+    // }
 
 
 
@@ -239,145 +239,152 @@ const UserSettings = () => {
     if (userReduxCredentials?.credentials?.roleRoleId === "admin") {
 
         return (
-            <div className="settingsViewDesign">
+            // <div className="settingsViewDesign">
+            <div className="container-fluid">
+
+                <div className="row usersettingsDesigns">
+                    <div className="col-lg-6 col-md-6 col-sm-12 settingsBoxDesign">
 
 
-                <div className="settingsBoxDesign">
-
-
-                    <h1 className="updateTittleDesign">Actualice sus credenciales</h1>
-                    <div className="formSquare2">
-                        <p>NOMBRE</p>
-                        <input
-                            type="text"
-                            name="name"
-                            value={user.name}
-                            className="updateInputs"
-                            placeholder="Name"
-                            onChange={inputHandler}
-                            onInput={(e) => errorHandler(e.target.name, e.target.value, "text")}
-                        />
-                        <p>TELÉFONO:</p>
-                        <input
-                            type="text"
-                            name="phone"
-                            className="updateInputs"
-                            value={user.phone}
-                            placeholder="Phone Number"
-                            onChange={inputHandler}
-                            onInput={(e) =>
-                                errorHandler(e.target.name, e.target.value, "phone")
-                            }
-                        />
-                        <div className="errorInput">{userError.phoneError}</div>
-                        <p>CONTRASEÑA:</p>
-                        <div className="updateInputs inputContainer">
+                        <h1 className="updateTittleDesign">Actualice sus credenciales</h1>
+                        <div className="formSquare2">
+                            <p className="cursordefault">NOMBRE</p>
                             <input
-                                className="inputDesign passwordInput"
-                                type={passwordShown ? "text" : "password"}
-                                name="password"
-                                value={user.password}
-                                placeholder="Password"
+                                type="text"
+                                name="name"
+                                value={user.name}
+                                className="updateInputs"
+                                placeholder="Name"
+                                onChange={inputHandler}
+                                onInput={(e) => errorHandler(e.target.name, e.target.value, "text")}
+                            />
+                            <p className="cursordefault">TELÉFONO:</p>
+                            <input
+                                type="text"
+                                name="phone"
+                                className="updateInputs"
+                                value={user.phone}
+                                placeholder="Phone Number"
+                                onChange={inputHandler}
+                                onInput={(e) =>
+                                    errorHandler(e.target.name, e.target.value, "phone")
+                                }
+                            />
+                            <div className="errorInput">{userError.phoneError}</div>
+                            <p className="cursordefault">CONTRASEÑA:</p>
+                            <div className="updateInputs inputContainer">
+                                <input
+                                    className="inputDesign passwordInput"
+                                    type={passwordShown ? "text" : "password"}
+                                    name="password"
+                                    value={user.password}
+                                    placeholder="Password"
+                                    onChange={inputHandler}
+                                    onInput={(e) =>
+                                        errorHandler(e.target.name, e.target.value, "password")
+                                    }
+                                />
+                                {passwordShown ? (
+                                    <EyeSlashIcon classes="eyeIcon" onClick={togglePassword} />
+                                ) : (
+                                    <EyeIcon classes="eyeIcon" onClick={togglePassword} />
+                                )}
+                            </div>
+                            <div className="errorInput">{userError.passwordError}</div>
+                            <p className="cursordefault">REPITE TU CONTRASEÑA:</p>
+                            <input
+                                type="password"
+                                name="password2"
+                                className="updateInputs"
+                                value={user.password2}
+                                placeholder="Repeat your password"
                                 onChange={inputHandler}
                                 onInput={(e) =>
                                     errorHandler(e.target.name, e.target.value, "password")
                                 }
                             />
-                            {passwordShown ? (
-                                <EyeSlashIcon classes="eyeIcon" onClick={togglePassword} />
-                            ) : (
-                                <EyeIcon classes="eyeIcon" onClick={togglePassword} />
-                            )}
-                        </div>
-                        <div className="errorInput">{userError.passwordError}</div>
-                        <p>REPITE TU CONTRASEÑA:</p>
-                        <input
-                            type="password"
-                            name="password2"
-                            className="updateInputs"
-                            value={user.password2}
-                            placeholder="Repeat your password"
-                            onChange={inputHandler}
-                            onInput={(e) =>
-                                errorHandler(e.target.name, e.target.value, "password")
-                            }
-                        />
-                        <div className="errorInput">{userError.password2Error}</div>
-                        <div className="adviseDesign">
-                            <input
-                                type="checkbox"
-                                defaultChecked={acceptedTerms}
-                                onChange={() => setAcceptedTerms(!acceptedTerms)}
-                            />
+                            <div className="errorInput">{userError.password2Error}</div>
+                            <div className="adviseDesign">
+                                <input
+                                    type="checkbox"
+                                    defaultChecked={acceptedTerms}
+                                    onChange={() => setAcceptedTerms(!acceptedTerms)}
+                                />
 
-                            <p>
+                                <p className="cursordefault">
 
-                                Por seguridad, se cerrará sesión cuando actualice su usuario y se redirigirá a Home.
-                                Por favor, revise los datos y acepte.
-                            </p>
-                        </div>
-                        <br></br>
-
-                        {acceptedTerms === true &&
-
-                            <div onClick={() => updateUser()} className="buttonssDesign">
-                                Actualizar ahora!
+                                    Por seguridad, se cerrará sesión cuando actualice su usuario y se redirigirá a Home.
+                                    Por favor, revise los datos y acepte.
+                                </p>
                             </div>
+                            <br></br>
 
-                        }
+                            {acceptedTerms === true &&
+
+                                <div onClick={() => updateUser()} className="usersettingsbutton">
+                                    Actualizar ahora!
+                                </div>
+
+                            }
 
 
 
 
+                        </div>
+                    </div>
+
+                    {/* <div className="settingsBoxDesign"> */}
+
+                    <div className="col-lg-6 col-md-6 col-sm-12">
+
+
+                        <h1 className="updateTittleDesign">Ajustes del Administrador</h1>
+                        <div className="formSquare2">
+                            <div className="eraseBox">
+
+                                <input type="text" name="notEmail" className="eraseInput mt-2" placeholder="Email de usuario..." onChange={inputEraseHandler} />
+                                <div onClick={handleEraseSubmit} className="usersettingsbutton ">Borrar usuario</div>
+                            </div>
+                            <br />
+                            <div className="boxestittle">Usuarios</div>
+
+
+                            {users.map((user, index) => {
+                                return (
+                                    <div
+                                        key={index}
+                                        className="usersBoxDesign">
+                                        Id: {user.user_id}
+                                        <br />
+                                        Usuario: {user.name}
+                                        <br />
+                                        Email: {user.email}
+                                        <br />
+                                    </div>
+                                )
+                            })}
+
+                            <div className="boxestittle">Reservas</div>
+
+                            {bookingsUsers.map((booking, index) => {
+                                return (
+                                    <div
+                                        key={index}
+                                        className="usersBoxDesign">
+                                        Id Reserva: {booking.booking_id}
+                                        <br />
+                                        Id Reserva - usuario {booking.userUserId}
+                                        <br />
+                                        Id Reserva - partido: {booking.gameGameId}
+                                        <br />
+                                    </div>
+                                )
+                            })}
+
+                        </div>
                     </div>
                 </div >
-                <div className="settingsBoxDesign">
 
-
-                    <h1 className="updateTittleDesign">Ajustes del Administrador</h1>
-                    <div className="formSquare2">
-                        <div className="eraseBox">
-
-                            <input type="text" name="notEmail" className="eraseInput" placeholder="user Email" onChange={inputEraseHandler} />
-                            <div onClick={handleEraseSubmit} className="cursorok">Borrar usuario</div>
-                        </div>
-                        <br />
-                        Usuarios
-
-                        {users.map((user, index) => {
-                            return (
-                                <div
-                                    key={index}
-                                    className="usersBoxDesign">
-                                    Id: {user.user_id}
-                                    <br />
-                                    Usuario: {user.name}
-                                    <br />
-                                    Email: {user.email}
-                                    <br />
-                                </div>
-                            )
-                        })}
-
-                        Reservas
-
-                        {bookingsUsers.map((booking, index) => {
-                            return (
-                                <div
-                                    key={index}
-                                    className="usersBoxDesign">
-                                    Id Reserva: {booking.booking_id}
-                                    <br />
-                                    Id Reserva - usuario {booking.userUserId}
-                                    <br />
-                                    Id Reserva - partido: {booking.gameGameId}
-                                    <br />
-                                </div>
-                            )
-                        })}
-
-                    </div>
-                </div>
             </div>
 
 
@@ -387,180 +394,136 @@ const UserSettings = () => {
     }
     else if (userReduxCredentials?.credentials?.roleRoleId === "sportscenteradmin") {
         return (
-            <div className="settingsViewDesign">
+            <div className="container-fluid">
+
+                <div className="row usersettingsDesigns">
+                    <div className="col-lg-6 col-md-6 col-sm-12 settingsBoxDesign">
 
 
-                <div className="settingsBoxDesign">
-
-
-                    <h1 className="updateTittleDesign">Actualice sus credenciales</h1>
-                    <div className="formSquare2">
-                        <p>NOMBRE</p>
-                        <input
-                            type="text"
-                            name="name"
-                            value={user.name}
-                            className="updateInputs"
-                            placeholder="Name"
-                            onChange={inputHandler}
-                            onInput={(e) => errorHandler(e.target.name, e.target.value, "text")}
-                        />
-                        <p>TELÉFONO:</p>
-                        <input
-                            type="text"
-                            name="phone"
-                            className="updateInputs"
-                            value={user.phone}
-                            placeholder="Phone Number"
-                            onChange={inputHandler}
-                            onInput={(e) =>
-                                errorHandler(e.target.name, e.target.value, "phone")
-                            }
-                        />
-                        <div className="errorInput">{userError.phoneError}</div>
-                        <p>CONTRASEÑA:</p>
-                        <div className="updateInputs inputContainer">
+                        <h1 className="updateTittleDesign">Actualice sus credenciales</h1>
+                        <div className="formSquare2">
+                            <p className="cursordefault">NOMBRE</p>
                             <input
-                                className="inputDesign passwordInput"
-                                type={passwordShown ? "text" : "password"}
-                                name="password"
-                                value={user.password}
-                                placeholder="Password"
+                                type="text"
+                                name="name"
+                                value={user.name}
+                                className="updateInputs"
+                                placeholder="Name"
+                                onChange={inputHandler}
+                                onInput={(e) => errorHandler(e.target.name, e.target.value, "text")}
+                            />
+                            <p className="cursordefault">TELÉFONO:</p>
+                            <input
+                                type="text"
+                                name="phone"
+                                className="updateInputs"
+                                value={user.phone}
+                                placeholder="Phone Number"
+                                onChange={inputHandler}
+                                onInput={(e) =>
+                                    errorHandler(e.target.name, e.target.value, "phone")
+                                }
+                            />
+                            <div className="errorInput">{userError.phoneError}</div>
+                            <p className="cursordefault">CONTRASEÑA:</p>
+                            <div className="updateInputs inputContainer">
+                                <input
+                                    className="inputDesign passwordInput"
+                                    type={passwordShown ? "text" : "password"}
+                                    name="password"
+                                    value={user.password}
+                                    placeholder="Password"
+                                    onChange={inputHandler}
+                                    onInput={(e) =>
+                                        errorHandler(e.target.name, e.target.value, "password")
+                                    }
+                                />
+                                {passwordShown ? (
+                                    <EyeSlashIcon classes="eyeIcon" onClick={togglePassword} />
+                                ) : (
+                                    <EyeIcon classes="eyeIcon" onClick={togglePassword} />
+                                )}
+                            </div>
+                            <div className="errorInput">{userError.passwordError}</div>
+                            <p className="cursordefault">REPITE TU CONTRASEÑA:</p>
+                            <input
+                                type="password"
+                                name="password2"
+                                className="updateInputs"
+                                value={user.password2}
+                                placeholder="Repeat your password"
                                 onChange={inputHandler}
                                 onInput={(e) =>
                                     errorHandler(e.target.name, e.target.value, "password")
                                 }
                             />
-                            {passwordShown ? (
-                                <EyeSlashIcon classes="eyeIcon" onClick={togglePassword} />
-                            ) : (
-                                <EyeIcon classes="eyeIcon" onClick={togglePassword} />
-                            )}
-                        </div>
-                        <div className="errorInput">{userError.passwordError}</div>
-                        <p>REPITE TU CONTRASEÑA:</p>
-                        <input
-                            type="password"
-                            name="password2"
-                            className="updateInputs"
-                            value={user.password2}
-                            placeholder="Repeat your password"
-                            onChange={inputHandler}
-                            onInput={(e) =>
-                                errorHandler(e.target.name, e.target.value, "password")
+                            <div className="errorInput">{userError.password2Error}</div>
+                            <div className="adviseDesign">
+                                <input
+                                    type="checkbox"
+                                    defaultChecked={acceptedTerms}
+                                    onChange={() => setAcceptedTerms(!acceptedTerms)}
+                                />
+
+                                <p className="cursordefault">
+
+                                    Por seguridad, se cerrará sesión cuando actualice su usuario y se redirigirá a Home.
+                                    Por favor, revise los datos y acepte.
+                                </p>
+                            </div>
+                            <br></br>
+
+                            {acceptedTerms === true &&
+
+                                <div onClick={() => updateUser()} className="usersettingsbutton">
+                                    Actualizar ahora!
+                                </div>
+
                             }
-                        />
-                        <div className="errorInput">{userError.password2Error}</div>
-                        <div className="adviseDesign">
-                            <input
-                                type="checkbox"
-                                defaultChecked={acceptedTerms}
-                                onChange={() => setAcceptedTerms(!acceptedTerms)}
-                            />
 
-                            <p>
 
-                                Estoy seguro de que qiero modificar mis datos
-                            </p>
+
+
                         </div>
-                        <br></br>
-
-                        {acceptedTerms === true &&
-
-                            <div onClick={() => updateUser()} className="buttonssDesign">
-                                Actualizar ahora!
-                            </div>
-
-                        }
-
                     </div>
-                </div >
-                <div className="settingsBoxDesign">
+
+                    <div className="col-lg-6 col-md-6 col-sm-12">
 
 
-                    <h1 className="updateTittleDesign">PARTIDOS </h1>
-                    <div className="formSquare2">
-                        <div className="eraseBox">
+                        <h1 className="updateTittleDesign">PARTIDOS </h1>
+                        <div className="formSquare2">
+                            <div className="eraseBox">
 
-                            <input type="text" name="games" className="eraseInput" placeholder="Id del partido" onChange={gameEraseHandler} />
-                            <div onClick={handleEraseGame} className="cursorok">Borrar partido</div>
-                        </div>
-                        <br />
-                        Partidos
-
-                        {games.map((game, index) => {
-                            return (
-                                <div
-                                    key={index}
-                                    className="usersBoxDesign">
-                                    Id: {game.game_id}
-                                    <br />
-                                    Tipo: {game.type}
-                                    <br />
-                                    Fecha: {game.date}
-                                    <br />
-                                    Polideportivo: {game.sportscenterSportscenterId}
-                                </div>
-                            )
-                        })}
-
-                        Crear Nuevo partido
-                        {/* -------------------------------------------------------------------------- */}
-                        <div >
-
-                            <div >
-                                <input
-                                    type="text"
-                                    name="type"
-                                    placeholder="Tipo"
-                                    required
-                                    onChange={inputHandler}
-
-                                />
-
-                                <input
-                                    type="text"
-                                    name="players"
-                                    placeholder="Nº jugadores"
-                                    onChange={inputHandler}
-
-                                />
-
-                                <input
-                                    type="text"
-                                    name="date"
-                                    placeholder="Fecha formato: AAAA-MM-DD hh:mm:ss"
-                                    onChange={inputHandler}
-
-                                />
-
-                                <input
-                                    type="text"
-                                    name="sportscenterId"
-                                    placeholder="Polideportivo ID"
-                                    required
-                                    onChange={inputHandler}
-
-                                />
-
-
-                                <br></br>
-                                <div className="buttoncenter">
-                                    {/* <div onClick={() => NewGame()} className="buttonssDesign">
-                                        Crear partido!
-                                    </div> */}
-
-                                </div>
-
-
-
+                                <input type="text" name="games" className="eraseInput mt-2" placeholder="Id del partido" onChange={gameEraseHandler} />
+                                <div onClick={handleEraseGame} className="usersettingsbutton">Borrar partido</div>
                             </div>
+                            <br />
+                            <div className="boxestittle">Partidos</div>
+
+                            {games.map((game, index) => {
+                                return (
+                                    <div
+                                        key={index}
+                                        className="usersBoxDesign">
+                                        Id: {game.game_id}
+                                        <br />
+                                        Tipo: {game.type}
+                                        <br />
+                                        Fecha: {game.date}
+                                        <br />
+                                        Polideportivo: {game.sportscenterSportscenterId}
+                                    </div>
+                                )
+                            })}
+
+
+
+
                         </div>
-                        {/* -------------------------------------------------------------------------- */}
-
-
                     </div>
                 </div>
+
+
             </div>
 
 
@@ -569,95 +532,100 @@ const UserSettings = () => {
     }
     else {
         return (
-            <div className="settingsViewDesign">
+            <div className="container-fluid">
+
+                <div className="row usersettingsDesigns">
+                    <div className="col-lg-6 col-md-6 col-sm-12 settingsBoxDesign">
 
 
-                <div className="settingsBoxDesign">
-
-
-                    <h1 className="updateTittleDesign">Actualice sus credenciales</h1>
-                    <div className="formSquare2">
-                        <p>NOMBRE</p>
-                        <input
-                            type="text"
-                            name="name"
-                            value={user.name}
-                            className="updateInputs"
-                            placeholder="Name"
-                            onChange={inputHandler}
-                            onInput={(e) => errorHandler(e.target.name, e.target.value, "text")}
-                        />
-
-                        <p>TELÉFONO:</p>
-                        <input
-                            type="text"
-                            name="phone"
-                            className="updateInputs"
-                            value={user.phone}
-                            placeholder="Phone Number"
-                            onChange={inputHandler}
-                            onInput={(e) =>
-                                errorHandler(e.target.name, e.target.value, "phone")
-                            }
-                        />
-                        <div className="errorInput">{userError.phoneError}</div>
-                        <p>CONTRASEÑA:</p>
-                        <div className="updateInputs inputContainer">
+                        <h1 className="updateTittleDesign">Actualice sus credenciales</h1>
+                        <div className="formSquare2">
+                            <p className="cursordefault">NOMBRE</p>
                             <input
-                                className="inputDesign passwordInput"
-                                type={passwordShown ? "text" : "password"}
-                                name="password"
-                                value={user.password}
-                                placeholder="Password"
+                                type="text"
+                                name="name"
+                                value={user.name}
+                                className="updateInputs"
+                                placeholder="Name"
+                                onChange={inputHandler}
+                                onInput={(e) => errorHandler(e.target.name, e.target.value, "text")}
+                            />
+                            <p className="cursordefault">TELÉFONO:</p>
+                            <input
+                                type="text"
+                                name="phone"
+                                className="updateInputs"
+                                value={user.phone}
+                                placeholder="Phone Number"
+                                onChange={inputHandler}
+                                onInput={(e) =>
+                                    errorHandler(e.target.name, e.target.value, "phone")
+                                }
+                            />
+                            <div className="errorInput">{userError.phoneError}</div>
+                            <p className="cursordefault">CONTRASEÑA:</p>
+                            <div className="updateInputs inputContainer">
+                                <input
+                                    className="inputDesign passwordInput"
+                                    type={passwordShown ? "text" : "password"}
+                                    name="password"
+                                    value={user.password}
+                                    placeholder="Password"
+                                    onChange={inputHandler}
+                                    onInput={(e) =>
+                                        errorHandler(e.target.name, e.target.value, "password")
+                                    }
+                                />
+                                {passwordShown ? (
+                                    <EyeSlashIcon classes="eyeIcon" onClick={togglePassword} />
+                                ) : (
+                                    <EyeIcon classes="eyeIcon" onClick={togglePassword} />
+                                )}
+                            </div>
+                            <div className="errorInput">{userError.passwordError}</div>
+                            <p className="cursordefault">REPITE TU CONTRASEÑA:</p>
+                            <input
+                                type="password"
+                                name="password2"
+                                className="updateInputs"
+                                value={user.password2}
+                                placeholder="Repeat your password"
                                 onChange={inputHandler}
                                 onInput={(e) =>
                                     errorHandler(e.target.name, e.target.value, "password")
                                 }
                             />
-                            {passwordShown ? (
-                                <EyeSlashIcon classes="eyeIcon" onClick={togglePassword} />
-                            ) : (
-                                <EyeIcon classes="eyeIcon" onClick={togglePassword} />
-                            )}
-                        </div>
-                        <div className="errorInput">{userError.passwordError}</div>
-                        <p>REPITA SU CONTRASEÑA:</p>
-                        <input
-                            type="password"
-                            name="password2"
-                            className="updateInputs"
-                            value={user.password2}
-                            placeholder="Repeat your password"
-                            onChange={inputHandler}
-                            onInput={(e) =>
-                                errorHandler(e.target.name, e.target.value, "password")
-                            }
-                        />
-                        <div className="errorInput">{userError.password2Error}</div>
-                        <div className="adviseDesign">
-                            <input
-                                type="checkbox"
-                                defaultChecked={acceptedTerms}
-                                onChange={() => setAcceptedTerms(!acceptedTerms)}
-                            />
+                            <div className="errorInput">{userError.password2Error}</div>
+                            <div className="adviseDesign">
+                                <input
+                                    type="checkbox"
+                                    defaultChecked={acceptedTerms}
+                                    onChange={() => setAcceptedTerms(!acceptedTerms)}
+                                />
 
-                            <p>
+                                <p className="cursordefault">
 
-                                Estoy seguro de que qiero modificar mis datos
-                            </p>
-                        </div>
-                        <br></br>
-
-
-                        {acceptedTerms === true &&
-
-                            <div onClick={() => updateUser()} className="buttonssDesign">
-                                Actualizar ahora!
+                                    Por seguridad, se cerrará sesión cuando actualice su usuario y se redirigirá a Home.
+                                    Por favor, revise los datos y acepte.
+                                </p>
                             </div>
+                            <br></br>
 
-                        }
+                            {acceptedTerms === true &&
+
+                                <div onClick={() => updateUser()} className="usersettingsbutton">
+                                    Actualizar ahora!
+                                </div>
+
+                            }
+
+
+
+
+                        </div>
                     </div>
-                </div >
+                </div>
+
             </div>
         )
     }

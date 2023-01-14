@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { bringSportscenters } from "../../services/apiCalls";
 import { useSelector, useDispatch } from "react-redux";
 import { sportscenterData, addSportscenter } from "../Sportscenters/sportscentersSlice";
-import Container from 'react-bootstrap/Container';
+// import Container from 'react-bootstrap/Container';
 
 import "./Home.scss";
 import SearchBar from "../../components/SearchBar/SearchBar";
@@ -59,7 +59,7 @@ const Home = () => {
                                     key={index}
                                     onClick={() => clickedSportscenter(sportscenter)}
                                     className="sportscenterShow col-12 mt-4 mb-4">
-                                    <div className="idsportscenter col-12 mt-2">
+                                    <div className="idsportscenter col-12 mt-2 ">
                                         {sportscenter.sportscenter_id}
                                     </div>
                                     <img
@@ -98,7 +98,7 @@ const Home = () => {
                                     key={index}
                                     onClick={() => clickedSportscenter(sportscenter)}
                                     className="sportscenterShow col-12 mt-4 mb-4">
-                                    <div className="idsportscenter col-12 mt-2">
+                                    <div className="idsportscenter col-12 mt-2 ">
                                         {sportscenter.sportscenter_id}
                                     </div>
                                     <img
