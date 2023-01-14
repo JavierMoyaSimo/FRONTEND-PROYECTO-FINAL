@@ -1,14 +1,35 @@
-.headerDesign {
-    height: 10vh;
-    width: 100vw;
+.homebutton {
+    padding: 0.4em;
+    cursor: pointer;
+    background-color: rgb(32, 168, 93);
+    border: none;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-
-    background-color: rgb(255, 255, 255);
 }
+
+.homehome {
+    cursor: default;
+}
+
+.align-right {
+    display: block !important;
+    margin: auto !important;
+}
+
+.collapse:not(.show) {
+    display: none !important;
+}
+
+// .headerDesign {
+//     height: 10vh;
+//     width: 100vw;
+
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     text-align: center;
+
+//     background-color: rgb(255, 255, 255);
+// }
 
 // .linkDesign {
 //     opacity: 85%;
@@ -66,48 +87,34 @@
 //     }
 // }
 
-.linkDesign {
-    padding: 0.4em;
-    cursor: pointer;
-    color: green;
-    
 
-}
+// .titleDesign1 {
+//     color: rgb(255, 255, 255);
+//     border: 1px green solid;
+//     padding: 0.5em;
+//     border-radius: 0.5em;
+//     background-color: rgb(37, 146, 117);
+//     margin-bottom: 0.1em;
+//     cursor: pointer;
+// }
 
-.titleDesign1 {
-    color: rgb(255, 255, 255);
-    border: 1px green solid;
-    padding: 0.5em;
-    border-radius: 0.5em;
-    background-color: rgb(37, 146, 117);
-    margin-bottom: 0.1em;
-    cursor: pointer;
-}
-
-.headerLeft {
-    padding: 2em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+// .headerLeft {
+//     padding: 2em;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
 
 
-.headerRight {
-    padding: 2em;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
+// .headerRight {
+//     padding: 2em;
+//     display: flex;
+//     justify-content: flex-end;
+//     align-items: center;
+// }
 
-.propadel {
-    padding: 2em;
-    font-style: italic;
-    color: green;
-}
-.align-right{
-    display: block !important;
-    margin: auto !important;
-}
-.collapse:not(.show) {
-    display: none !important;
-}
+// .propadel {
+//     padding: 2em;
+//     font-style: italic;
+//     color: green;
+// }
