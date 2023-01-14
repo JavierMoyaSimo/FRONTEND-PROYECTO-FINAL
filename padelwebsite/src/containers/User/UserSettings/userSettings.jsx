@@ -532,96 +532,100 @@ const UserSettings = () => {
     }
     else {
         return (
-            <div className="settingsViewDesign">
+            <div className="container-fluid">
+
+                <div className="row usersettingsDesigns">
+                    <div className="col-lg-6 col-md-6 col-sm-12 settingsBoxDesign">
 
 
-                <div className="settingsBoxDesign">
-
-
-                    <h1 className="updateTittleDesign">Actualice sus credenciales</h1>
-                    <div className="formSquare2">
-                        <p className="cursordefault">NOMBRE</p>
-                        <input
-                            type="text"
-                            name="name"
-                            value={user.name}
-                            className="updateInputs"
-                            placeholder="Name"
-                            onChange={inputHandler}
-                            onInput={(e) => errorHandler(e.target.name, e.target.value, "text")}
-                        />
-
-                        <p className="cursordefault">TELÉFONO:</p>
-                        <input
-                            type="text"
-                            name="phone"
-                            className="updateInputs"
-                            value={user.phone}
-                            placeholder="Phone Number"
-                            onChange={inputHandler}
-                            onInput={(e) =>
-                                errorHandler(e.target.name, e.target.value, "phone")
-                            }
-                        />
-                        <div className="errorInput">{userError.phoneError}</div>
-                        <p className="cursordefault">CONTRASEÑA:</p>
-                        <div className="updateInputs inputContainer">
+                        <h1 className="updateTittleDesign">Actualice sus credenciales</h1>
+                        <div className="formSquare2">
+                            <p className="cursordefault">NOMBRE</p>
                             <input
-                                className="inputDesign passwordInput"
-                                type={passwordShown ? "text" : "password"}
-                                name="password"
-                                value={user.password}
-                                placeholder="Password"
+                                type="text"
+                                name="name"
+                                value={user.name}
+                                className="updateInputs"
+                                placeholder="Name"
+                                onChange={inputHandler}
+                                onInput={(e) => errorHandler(e.target.name, e.target.value, "text")}
+                            />
+                            <p className="cursordefault">TELÉFONO:</p>
+                            <input
+                                type="text"
+                                name="phone"
+                                className="updateInputs"
+                                value={user.phone}
+                                placeholder="Phone Number"
+                                onChange={inputHandler}
+                                onInput={(e) =>
+                                    errorHandler(e.target.name, e.target.value, "phone")
+                                }
+                            />
+                            <div className="errorInput">{userError.phoneError}</div>
+                            <p className="cursordefault">CONTRASEÑA:</p>
+                            <div className="updateInputs inputContainer">
+                                <input
+                                    className="inputDesign passwordInput"
+                                    type={passwordShown ? "text" : "password"}
+                                    name="password"
+                                    value={user.password}
+                                    placeholder="Password"
+                                    onChange={inputHandler}
+                                    onInput={(e) =>
+                                        errorHandler(e.target.name, e.target.value, "password")
+                                    }
+                                />
+                                {passwordShown ? (
+                                    <EyeSlashIcon classes="eyeIcon" onClick={togglePassword} />
+                                ) : (
+                                    <EyeIcon classes="eyeIcon" onClick={togglePassword} />
+                                )}
+                            </div>
+                            <div className="errorInput">{userError.passwordError}</div>
+                            <p className="cursordefault">REPITE TU CONTRASEÑA:</p>
+                            <input
+                                type="password"
+                                name="password2"
+                                className="updateInputs"
+                                value={user.password2}
+                                placeholder="Repeat your password"
                                 onChange={inputHandler}
                                 onInput={(e) =>
                                     errorHandler(e.target.name, e.target.value, "password")
                                 }
                             />
-                            {passwordShown ? (
-                                <EyeSlashIcon classes="eyeIcon" onClick={togglePassword} />
-                            ) : (
-                                <EyeIcon classes="eyeIcon" onClick={togglePassword} />
-                            )}
-                        </div>
-                        <div className="errorInput">{userError.passwordError}</div>
-                        <p className="cursordefault">REPITA SU CONTRASEÑA:</p>
-                        <input
-                            type="password"
-                            name="password2"
-                            className="updateInputs"
-                            value={user.password2}
-                            placeholder="Repeat your password"
-                            onChange={inputHandler}
-                            onInput={(e) =>
-                                errorHandler(e.target.name, e.target.value, "password")
-                            }
-                        />
-                        <div className="errorInput">{userError.password2Error}</div>
-                        <div className="adviseDesign">
-                            <input
-                                type="checkbox"
-                                defaultChecked={acceptedTerms}
-                                onChange={() => setAcceptedTerms(!acceptedTerms)}
-                            />
+                            <div className="errorInput">{userError.password2Error}</div>
+                            <div className="adviseDesign">
+                                <input
+                                    type="checkbox"
+                                    defaultChecked={acceptedTerms}
+                                    onChange={() => setAcceptedTerms(!acceptedTerms)}
+                                />
 
-                            <p className="cursordefault">
+                                <p className="cursordefault">
 
-                                Por seguridad, se cerrará sesión cuando actualice su usuario y se redirigirá a Home.
-                                Por favor, revise los datos y acepte.
-                            </p>
-                        </div>
-                        <br></br>
-
-
-                        {acceptedTerms === true &&
-
-                            <div onClick={() => updateUser()} className="buttonssDesign">
-                                Actualizar ahora!
+                                    Por seguridad, se cerrará sesión cuando actualice su usuario y se redirigirá a Home.
+                                    Por favor, revise los datos y acepte.
+                                </p>
                             </div>
+                            <br></br>
 
-                        }
+                            {acceptedTerms === true &&
+
+                                <div onClick={() => updateUser()} className="usersettingsbutton">
+                                    Actualizar ahora!
+                                </div>
+
+                            }
+
+
+
+
+                        </div>
                     </div>
-                </div >
+                </div>
+
             </div>
         )
     }
