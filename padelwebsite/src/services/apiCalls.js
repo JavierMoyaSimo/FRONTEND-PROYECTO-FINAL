@@ -86,3 +86,12 @@ export const eraseGame = async (notGame, jwt) => {
 
   return res.data;
 };
+
+export const createGame = async (body, jwt) => {
+  let res = await axios.post(dataBase + "/games/newGame",body, {
+    headers: { Authorization: `Bearer ${jwt}` },
+  });
+
+
+  return res.data;
+};

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { bringSportscenters } from "../../services/apiCalls";
 import { useSelector, useDispatch } from "react-redux";
 import { sportscenterData, addSportscenter } from "../Sportscenters/sportscentersSlice";
-
+import Container from 'react-bootstrap/Container';
 
 import "./Home.scss";
 import SearchBar from "../../components/SearchBar/SearchBar";
@@ -46,19 +46,20 @@ const Home = () => {
         return (
 
 
-            <div className="containerDesign">
+            // <div className="containerDesign">
+            <Container>
 
                 <SearchBar />
-                <h1 className="titleDesign">¡Haz clic y entra para ver los partidos disponibles para tu centro deportivo!</h1>
-                <div className="homeDesign">
+                <h1 className=" row">¡Haz clic y entra para ver los partidos disponibles para tu centro deportivo!</h1>
+                <div className="container">
                     {sportscentersFromRdx.details.map((sportscenter, index) => {
                         return (
-                            <div>
+                            <div className="row">
 
                                 <div
                                     key={index}
                                     onClick={() => clickedSportscenter(sportscenter)}
-                                    className="sportscenterShow">
+                                    className="sportscenterShow col-sm">
                                     <div className="idsportscenter">
                                         {sportscenter.sportscenter_id}
                                     </div>
@@ -75,7 +76,7 @@ const Home = () => {
                     })}
                 </div>
 
-            </div>
+            </Container>
 
 
 
@@ -86,24 +87,24 @@ const Home = () => {
         return (
 
 
-            <div className="containerDesign">
+            <div className="container-fluid containerDesign">
 
                 <SearchBar />
-                <h1 className="titleDesign">¡Haz clic y entra para ver los partidos disponibles de tu centro deportivo!</h1>
-                <div className="homeDesign">
+                <h1 className="row d-block m-auto">¡Haz clic y entra para ver los partidos disponibles de tu centro deportivo!</h1>
+                <div className="row d-flex flex-wrap p-2">
                     {sportscenters.map((sportscenter, index) => {
                         return (
 
-                            <div>
+                            <div className="col-lg-4 col-md-6 col-sm-12 mb-4 mt-4">
                                 <div
                                     key={index}
                                     onClick={() => clickedSportscenter(sportscenter)}
-                                    className="sportscenterShow">
-                                    <div className="idsportscenter">
+                                    className="sportscenterShow col-12 mt-4 mb-4">
+                                    <div className="idsportscenter col-12 mt-2">
                                         {sportscenter.sportscenter_id}
                                     </div>
                                     <img
-                                        className="sportscenterPic"
+                                        className="sportscenterPic col-8 mb-4"
                                         src={sportscenter.image}
                                     />
 

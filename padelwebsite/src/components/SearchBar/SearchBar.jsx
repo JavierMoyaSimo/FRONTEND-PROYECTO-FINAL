@@ -3,6 +3,7 @@ import { addSearch, cleanSearch } from "../../containers/Sportscenters/sportscen
 import { searchSportscenters } from "../../services/apiCalls";
 import { useDispatch } from "react-redux";
 import './SearchBar.scss'
+import Container from "react-bootstrap/esm/Container";
 
 
 const SearchBar = () => {
@@ -45,10 +46,10 @@ const SearchBar = () => {
     }, [criteria]);
 
     return (
-        <div className='divInputDesign'>
-            <div className="search-box">
-                <button className="btn-search"><i className="fas fa-search"></i></button>
-                <input type="text" name="criteria" className="input-search" placeholder="Introduzca provincia para buscar polideportivo..." onChange={(e) => criteriaHandler(e)} />
+        <div className='container-fluid divInputDesign mb-4 mt-4'>
+            <div className=" row search-box">
+                <button className="btn-search col-12"><i className="fas fa-search"></i></button>
+                <input type="text" name="criteria" className="input-search col-12" placeholder="Introduzca provincia para buscar polideportivo..." onChange={(e) => criteriaHandler(e)} />
             </div>
 
         </div>

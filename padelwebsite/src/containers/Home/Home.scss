@@ -6,7 +6,8 @@
   .containerDesign {
     display: flex;
     width: 100vw;
-    height: 90vh;
+    height: 100vh;
+    overflow-x: hidden;
     flex-direction: column;
     align-items: center;
     background-color: rgb(173, 214, 212);
@@ -35,14 +36,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 6em 1em 0 1em;
     height: 11em;
     z-index: 2;
     
   }
   
   .sportscenterPic {
-    height: 10em;
+    height: 15em;
     width: 17em;
     transition: all 1s;
     border: 1px black solid;
@@ -50,13 +50,12 @@
   }
   
   .sportscenterPic:hover {
-    height: 16em;
-    width: 20em;
+    // height: 92%;
+    // width: 90%;
     transition: 0.3s;
     z-index: 1 !important;
     border: 2px black solid;
     border-radius: 0.5em;
-    margin: 0.5em;
     opacity: 50%;
   }
   
