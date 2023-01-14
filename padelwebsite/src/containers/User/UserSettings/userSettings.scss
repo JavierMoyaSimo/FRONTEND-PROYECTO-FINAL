@@ -1,189 +1,260 @@
 * {
-    margin: 0;
-    padding: 0;
-    color: black;
-  }
-  
-  .updateTittleDesign {
-    color: white;
-  }
-  p {
-    color: black;
-  }
-  
-  .adviseDesign {
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .settingsViewDesign {
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    width: 100vw;
-    color: rgb(32, 168, 93);
-    background-color: rgb(173, 214, 212);
-  }
-  
-  .settingsBoxDesign {
-    height: 90vh; 
-    width: 50vw;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-  }
-  
-  .formSquare2 {
-    font-family: "Courier New", Courier, monospace;
-    font-size: small;
-    width: 30vw;
-    height: 60vh;
-    background-color: rgb(255, 255, 255);
-    padding: 3em;
-    border: 1px gray solid;
-    border-radius: 0.5em;
-    overflow-y: scroll;
-    color: black;
-    overflow-x: hidden;
-  }
-  
-  .formSquare2::-webkit-scrollbar-track {
-    margin: 0.5em;
-    border: 1px solid #000;
-    padding: 2px 0;
-    background-color: #404040;
-    border-radius: 1em;
-  }
-  .formSquare2::-webkit-scrollbar {
-    width: 0.7em;
-    border-radius: 1em;
-  }
-  .formSquare2::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #b4b4b4;
-    border: 1px solid #000;
-  }
-  .updateInputs {
-    width: 100%;
-    height: 5vh;
-    display: flex;
-    text-align: center;
-    border-radius: 0.8em;
-    border: 2px solid white;
-    background-color: rgb(198, 198, 198);
-    color: rgb(60, 60, 60);
-    font-family: Georgia, "Times New Roman", Times, serif;
-    font-size: small;
-  }
-  
-  .passwordInput {
-    justify-self: center;
-    text-align: center;
-    // margin-left: 32px;
-    // width: 100%;
-    color: black;
-  }
-  
-  .passwordInput::placeholder {
-    color: white;
-  }
-  
-  .eyeIcon {
-    justify-self: end;
-    // margin-right: 1em;
-    fill: white;
-    cursor: pointer;
-    user-select: none;
-  }
-  
-  .inputContainer {
-    color: white;
-    display: flex;
-    align-items: center;
-  }
-  
-  .updateInputs::placeholder {
-    color: rgb(255, 255, 255);
-  }
-  
-  .inputDesign {
-    background: none;
-    border: none;
-    width: 100%;
-  }
-  
-  .inputDesign:focus {
-    outline: none;
-  }
-  
-  .errorInput {
-    color: red;
-    font-size: small;
-  }
-  
-  input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
-  
-  .submitButton {
-   
-    border: 2px solid white;
-    height: 5vh;
-    width: 25%;
-    border-radius: 1em;
-    background-color: aqua;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    font-weight: 500;
-  }
-  
-  .submitButton:hover {
-    width: 45%;
-    transition: 0.2s ease-in-out;
-    color: red;
-    font-weight: 600;
-  }
-  
-  .termsDesign {
-    color: black;
-    display: flex;
-  }
-  
-  .usersBoxDesign {
-    display: flex;
-    border: 1px black solid;
-    border-radius: 0.5em;
-    margin: 1em 0;
-    padding: 0em 0.5em;
-    text-align: start;
-    background-color: rgba(0, 0, 0, 0.171);
-    color: rgb(0, 0, 0);
-  }
-  
-  .eraseBox {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100vw;
-  }
-  .eraseInput {
-    width: 19.5vw;
-    height: 3vh;
-    border-radius: 0.5em;
-    border: 1px black solid;
-    padding: 0 1em;
-  }
-  .eraseButton {
-    border-radius: 0.5em;
-    border: 1px black solid;
-    width: 8vw;
-  }
+  margin: 0;
+  padding: 0;
+  color: black;
+}
 
-  .cursorok {
-    cursor: pointer;
-    
-  }
+.usersettingsDesigns{
+  height: 100vh;
+    width: 100vw;
+    background-color: rgb(173, 214, 212);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    // align-items: center;
+
+}
+
+.updateTittleDesign {
+  color: white;
+  cursor: default;
   
+}
+
+.cursordefault {
+  cursor: default;
+}
+
+
+
+p {
+  color: black;
+}
+
+.adviseDesign {
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settingsViewDesign {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100vw;
+  color: rgb(32, 168, 93);
+  background-color: rgb(173, 214, 212);
+}
+
+.settingsBoxDesign {
+  height: 90vh;
+  width: 50vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+// .formSquare2 {
+//   font-family: "Courier New", Courier, monospace;
+//   font-size: small;
+//   width: 30vw;
+//   height: 60vh;
+//   background-color: rgb(255, 255, 255);
+//   padding: 3em;
+//   border: 1px gray solid;
+//   border-radius: 0.5em;
+//   overflow-y: scroll;
+//   color: black;
+//   overflow-x: hidden;
+// }
+
+.formSquare2 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: small;
+  background-color: rgb(255, 255, 255);
+  border: 1px gray solid;
+  border-radius: 0.5em;
+  color: black;
+  overflow-y: scroll;
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.formSquare2::-webkit-scrollbar-track {
+  margin: 0.5em;
+  border: 1px solid #000;
+  padding: 2px 0;
+  background-color: #404040;
+  border-radius: 1em;
+}
+
+.formSquare2::-webkit-scrollbar {
+  width: 0.7em;
+  border-radius: 1em;
+}
+
+.formSquare2::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #b4b4b4;
+  border: 1px solid #000;
+}
+
+.updateInputs {
+  width: 100%;
+  height: 5vh;
+  display: flex;
+  text-align: center;
+  border-radius: 0.8em;
+  border: 2px solid white;
+  background-color: rgb(198, 198, 198);
+  color: rgb(60, 60, 60);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: small;
+}
+
+.passwordInput {
+  justify-self: center;
+  text-align: center;
+  // margin-left: 32px;
+  // width: 100%;
+  color: black;
+}
+
+.passwordInput::placeholder {
+  color: white;
+}
+
+.eyeIcon {
+  justify-self: end;
+  // margin-right: 1em;
+  fill: white;
+  cursor: pointer;
+  user-select: none;
+}
+
+.inputContainer {
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.updateInputs::placeholder {
+  color: rgb(255, 255, 255);
+}
+
+.inputDesign {
+  background: none;
+  border: none;
+  width: 100%;
+}
+
+.inputDesign:focus {
+  outline: none;
+}
+
+.errorInput {
+  color: red;
+  font-size: small;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.submitButton {
+
+  border: 2px solid white;
+  height: 5vh;
+  width: 25%;
+  border-radius: 1em;
+  background-color: aqua;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.submitButton:hover {
+  width: 45%;
+  transition: 0.2s ease-in-out;
+  color: red;
+  font-weight: 600;
+}
+
+.termsDesign {
+  color: black;
+  display: flex;
+}
+
+.usersBoxDesign {
+  display: flex;
+  border: 1px black solid;
+  border-radius: 0.5em;
+  margin: 1em 0;
+  padding: 0em 0.5em;
+  text-align: start;
+  background-color: rgba(0, 0, 0, 0.171);
+  color: rgb(0, 0, 0);
+  cursor: default;
+}
+
+.eraseBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.eraseInput {
+  
+  height: 3vh;
+  border-radius: 0.5em;
+  border: 1px black solid;
+  padding: 0 1em;
+}
+
+.eraseButton {
+  border-radius: 0.5em;
+  border: 1px black solid;
+  width: 8vw;
+}
+
+
+
+
+.usersettingsbutton {
+  height: 2.5em;
+  width: 7.5em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: 0.2s;
+  margin: 0.5em 0 0 0;
+  border: 2px solid white;
+  border-radius: 1em;
+  background-color: rgb(37, 146, 117);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.usersettingsbutton:hover {
+  transition: 0.2s;
+  // width: 14vw;
+  transition: 0.2s width;
+  color: black;
+  font-weight: 600;
+  opacity: 50%;
+}
+
+.boxestittle{
+  cursor: default;
+}
