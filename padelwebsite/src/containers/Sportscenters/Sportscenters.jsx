@@ -40,32 +40,41 @@ const Sportscenter = () => {
     if (selectedSportscenter?.sportscenter_id !== undefined) {
 
         return (
-            <div className="sportsDesigns">
-                {selectedSportscenter?.sportscenter_id}
-                <img className="sportPic" src={selectedSportscenter?.image} />
-                {selectedSportscenter?.description}
-
-
-                {credentials?.credentials?.jwt !== undefined &&
-
-                    <div onClick={() => watchMe(title)} className='buttonssDesign'>
-                        Ver partidos 
+            // <div className="sportsDesigns">
+            <div className="container-fluid  descriptiontext">
+                <div className='row sportsDesigns'>
+                    <div className='col-lg-6 col-md-6 col-sm-12 twodivs leftdiv'>
+                        {selectedSportscenter?.sportscenter_id}
+                        <img className="sportPic" src={selectedSportscenter?.image} />
+                        <div onClick={() => returnHome()} className='sportscenterbutton'>
+                            Volver a Home
+                        </div>
                     </div>
+                    <div className='col-lg-6 col-md-6 col-sm-12 twodivs mb-2'>
+                        {selectedSportscenter?.description}
+                        {credentials?.credentials?.jwt !== undefined &&
 
-                }
+                            <div onClick={() => watchMe(title)} className='sportscenterbutton'>
+                                Ver partidos
+                            </div>
 
-                <div onClick={() => returnHome()} className='buttonssDesign'>
-                    Volver a Home
+                        }
+
+                    </div>
                 </div>
+
+
+
 
             </div>
         )
 
     } else {
         return (
-            <div className="sportsDesigns">
+            // <div className="sportsDesigns">
+            <div className="container-fluid ">
                 <div>Ha Habido un error</div>
-                <div onClick={() => returnHome()} className='buttonssDesign'>
+                <div onClick={() => returnHome()} className='sportscenterbutton'>
                     Volver a Home
                 </div>
 
