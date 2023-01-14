@@ -1,77 +1,82 @@
 * {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .containerDesign {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    overflow-x: hidden;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgb(173, 214, 212);
-  }
-  
-  .homeDesign {
-    margin-top: 3em;
-    width: 95vw;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-top: 3em;
-    color: white;
-    background-color: rgb(173, 214, 212);
-    justify-content: center;
-    overflow-x: hidden;
-  }
-  
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .sportscenterShow {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 11em;
-    z-index: 2;
-    
-  }
-  
-  .sportscenterPic {
-    height: 15em;
-    width: 17em;
-    transition: all 1s;
-    border: 1px black solid;
-    border-radius: 1em;
-  }
-  
-  .sportscenterPic:hover {
-    // height: 92%;
-    // width: 90%;
-    transition: 0.3s;
-    z-index: 1 !important;
-    border: 2px black solid;
-    border-radius: 0.5em;
-    opacity: 50%;
-  }
-  
-  .titleDesign {
-    margin: 1em 0 0 0;
-    color: rgb(32, 168, 93);
-    z-index: 4;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
-  
-  .pOfHome {
-    color: white;
-  }
+  margin: 0;
+  padding: 0;
+}
 
-  .idsportscenter{
-    color: rgb(32, 168, 93);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-style: italic;
-  }
+.containerDesign {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(173, 214, 212);
+}
+
+.homeDesign {
+  margin-top: 3em;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 3em;
+  color: white;
+  background-color: rgb(173, 214, 212);
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.sportscenterShow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 11em;
+  z-index: 2;
+
+}
+
+.sportscenterPic {
+  height: 15em;
+  width: 17em;
+  transition: all 1s;
+  border: 1px black solid;
+  border-radius: 1em;
+}
+
+.sportscenterPic:hover {
+  // height: 92%;
+  // width: 90%;
+  transition: 0.3s;
+  z-index: 1 !important;
+  border: 2px black solid;
+  border-radius: 0.5em;
+  opacity: 50%;
+}
+
+.titleDesign {
+  margin: 1em 0 0 0;
+  color: rgb(32, 168, 93);
+  z-index: 4;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.pOfHome {
+  color: white;
+}
+
+.idsportscenter {
+  color: rgb(32, 168, 93);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style: italic;
+}
+
+.hometitle {
+  color: rgb(32, 168, 93);
+
+}
