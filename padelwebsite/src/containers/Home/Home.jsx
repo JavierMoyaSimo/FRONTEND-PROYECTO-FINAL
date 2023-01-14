@@ -47,25 +47,23 @@ const Home = () => {
 
 
             // <div className="containerDesign">
-            <Container>
+            <div className="container-fluid containerDesign">
 
                 <SearchBar />
-                <h1 className=" row">¡Haz clic y entra para ver los partidos disponibles para tu centro deportivo!</h1>
-                <div className="container">
+                <h1 className="row d-block m-auto hometitle">¡Haz click y entra para ver los partidos disponibles de tu centro deportivo!</h1>
+                <div className="row d-flex flex-wrap p-2">
                     {sportscentersFromRdx.details.map((sportscenter, index) => {
                         return (
-                            <div className="row">
-
+                            <div className="col-lg-4 col-md-6 col-sm-12 mb-4 mt-4">
                                 <div
                                     key={index}
                                     onClick={() => clickedSportscenter(sportscenter)}
-                                    className="sportscenterShow col-sm">
-                                    <div className="idsportscenter">
+                                    className="sportscenterShow col-12 mt-4 mb-4">
+                                    <div className="idsportscenter col-12 mt-2">
                                         {sportscenter.sportscenter_id}
                                     </div>
-
                                     <img
-                                        className="sportscenterPic"
+                                        className="sportscenterPic col-8 mb-4"
                                         src={sportscenter.image}
                                     />
 
@@ -76,7 +74,7 @@ const Home = () => {
                     })}
                 </div>
 
-            </Container>
+            </div>
 
 
 
@@ -90,7 +88,7 @@ const Home = () => {
             <div className="container-fluid containerDesign">
 
                 <SearchBar />
-                <h1 className="row d-block m-auto">¡Haz clic y entra para ver los partidos disponibles de tu centro deportivo!</h1>
+                <h1 className="row d-block m-auto hometitle">¡Haz click y entra para ver los partidos disponibles de tu centro deportivo!</h1>
                 <div className="row d-flex flex-wrap p-2">
                     {sportscenters.map((sportscenter, index) => {
                         return (
