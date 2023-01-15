@@ -62,10 +62,9 @@ const Game = () => {
                 document.getElementById("reserror").innerHTML = "";
                 setTimeout(() => {
                     document.getElementById("reserror").innerHTML = `No se ha realizado la reserva, el partido con identificador número ${game_id} ya ha sido reservado`;
+                     window.location.href = "http://localhost:3000/game#reserror"; 
                 }, 500);
-                // setTimeout(() => {
-                //     #reserror
-                // }, 500);
+                
 
             }
 
