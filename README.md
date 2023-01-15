@@ -1,70 +1,122 @@
-# Getting Started with Create React App
+# PROPADEL
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Información general
 
-## Available Scripts
+Este proyecto consiste en el Front-End de una API de alquiler de partidos de padel realizado con React.
 
-In the project directory, you can run:
+## Índice (#indice)
 
-### `npm start`
+Algunas de las funcionalidades son:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Mostrar todos los polideportivos
+- Mostrar todos los polideportivos por provincia
+- Mostrar todos los partidos
+- Mostrar todos los partidos de un polideportivo
+- Mostrar todas las reservas de partidos
+- Registrar usuario
+- Inicio de sesión de un usuario
+- Modificar datos de usuario
+- Mostrar todos los usuarios
+- Eliminar un usuario
+- Eliminar un partido
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Repositorios
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[Front End](https://github.com/JavierMoyaSimo/FRONTEND-PROYECTO-FINAL#authors)
 
-### `npm run build`
+[Back End](https://github.com/JavierMoyaSimo/PROYECTO-FINAL)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Vistas
 
-### `npm run eject`
+Vista principal: 'Home'.
+<br>
+<img src="./img/Home.PNG" width="400em"/>
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Vista de registro
+<br>
+<img src="./img/Register.PNG" width="400em"/>
+<br>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Vista de Login
+<br>
+<img src="./img/Login.PNG" width="400em"/>
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Vista de descripción de Polideportivo
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<br>
+<img src="./img/game.PNG" width="400em"/>
+<br>
 
-## Learn More
+Partidos de un polideportivo
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br>
+<img src="./img/booking.PNG" width="400em"/>
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Vista de configuración (como admin).
 
-### Code Splitting
+<br>
+<img src="./img/settings.PNG" width="400em"/>
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Vista de configuración (como sportscenteradmin)
 
-### Analyzing the Bundle Size
+<br>
+<img src="./img/SettingsUser.PNG" width="400em"/>
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Vista de configuración (como usuario).
 
-### Making a Progressive Web App
+<br>
+<img src="./img/settings.PNG" width="400em"/>
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## Tecnologías, dependencias y librerías
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Front End:
 
-### Deployment
+- [HTML5](https://html5.org/)
+- [SCSS](https://sass-lang.com/)
+- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [JavaScript](https://www.javascript.com/)
+- [ReactJS](https://es.reactjs.org/)
+- [Redux](https://redux.js.org//)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Back End:
 
-### `npm run build` fails to minify
+- [JavaScript](https://www.javascript.com/)
+- [Node](https://nodejs.org/en/)
+- [Express](https://expressjs.com/)
+- [Sequelize](https://sequelize.org/)
+- [Jwt-decode](https://jwt.io/)
+- [Axios](https://axios-http.com//)
+- [MySQL](https://www.mysql.com/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## Autor
+
+
+Javier Moya Simó
+
+- [Linked In](https://www.linkedin.com/in/javier-moya-simo/)
+- [Github](https://github.com/JavierMoyaSimo)
+
+---
+
+## Licencia
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+
+---
+
+[Volver arriba](#indice)
