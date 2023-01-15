@@ -4,7 +4,7 @@
 
 Este proyecto consiste en el Front-End de una API de alquiler de partidos de padel realizado con React.
 
-## Índice (#indice)
+## Índice
 
 Algunas de las funcionalidades son:
 
@@ -126,4 +126,3 @@ Javier Moya Simó
 
 ---
 
-[Volver arriba](#indice)
