@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';e
+import { createSlice } from '@reduxjs/toolkit';
 
 export const userSlice = createSlice({
     name: 'user',
