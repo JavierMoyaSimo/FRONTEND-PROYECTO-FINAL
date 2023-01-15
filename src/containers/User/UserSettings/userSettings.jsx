@@ -18,7 +18,7 @@ const UserSettings = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const dataBase = "http://localhost:3001/";
+    const dataBase = "https://proyecto-final-production-3793.up.railway.app/";
 
     const userReduxCredentials = useSelector(userData);
     const gamesFromRedux = useSelector(gameData);

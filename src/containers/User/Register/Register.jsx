@@ -8,7 +8,7 @@ import axios from "axios";
 
 const Register = () => {
 
-    const dataBase = "http://localhost:3001/";
+    const dataBase = "https://proyecto-final-production-3793.up.railway.app/";
 
     //Hooks
     const [user, setUser] = useState({
