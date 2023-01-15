@@ -12,20 +12,19 @@ const Game = () => {
 
     const dispatch = useDispatch();
     const selectedGame = useSelector(gameData);
-    // const gamesrdx = selectedGame;
     const title = selectedGame?.details;
-    // const idgameid = selectedGame?.details.game_id
     const credentials = useSelector(userData);
     const navigate = useNavigate();
+
 
     //Hooks
     const [games, setGames] = useState([]);
 
     useEffect(() => {
 
-        console.log("AQUIESTANLOSDATOQUEBUSCO", selectedGame)
+
         if (games.length === 0) {
-            bringGamesbySportsCenter(selectedGame.details)
+            bringGamesbySportsCenter(selectedGame.details, jwt)
                 .then((games) => {
                     setGames(games);
                 })
@@ -35,7 +34,7 @@ const Game = () => {
 
 
 
-    // const gameId = game.game_id;
+
     const email = credentials?.credentials?.email;
     const jwt = credentials?.credentials?.jwt;
     const idgameid = games.game_id
@@ -64,7 +63,7 @@ const Game = () => {
                 setTimeout(() => {
                     document.getElementById("reserror").innerHTML = `No se ha realizado la reserva, el partido con identificador número ${game_id} ya ha sido reservado`;
                 }, 500);
-                // document.getElementById("reserror").innerHTML = "No se ha realizado la reserva,  este partido ya ha sido reservado";
+
             }
 
             else {
@@ -100,64 +99,67 @@ const Game = () => {
 
         return (
             <div className="containerDesign">
+                <div className="row">
+                    <div className="gameDesign col-12 mt-4 mb-4">
+                        {games.map((game, index) => {
+                            return (
+                                <div
+                                    key={index}
+                                    className="gameShow mb-3 ">
+                                    <div className='gamesNumber gameNumberId'>
+                                        <p className='pGames'>Partido numero:</p>
+                                        {game.game_id}
 
-                <div className="sportDesign">
-                    {games.map((game, index) => {
-                        return (
-                            <div
-                                key={index}
-                                className="gameShow">
-                                <div className='gamesNumber'>
-                                    <p className='pGames'>Partido numero:</p>
-                                    {game.game_id}
+                                    </div>
+                                    <div className='gamesNumber'>
+                                        <p className='pGames'>Fecha:</p>
+                                        {game.date}
+                                    </div>
+                                    <div className='gamesNumber'>
+                                        <p className='pGames'>Tipo:</p>
+                                        {game.type}
+                                    </div>
+                                    <div className='gamesNumber'>
+                                        <p className='pGames'>Jugadores:</p>
+                                        {game.players}
+                                    </div>
 
-                                </div>
-                                <div className='gamesNumber'>
-                                    <p className='pGames'>Fecha:</p>
-                                    {game.date}
-                                </div>
-                                <div className='gamesNumber'>
-                                    <p className='pGames'>Tipo:</p>
-                                    {game.type}
-                                </div>
-                                <div className='gamesNumber'>
-                                    <p className='pGames'>Jugadores:</p>
-                                    {game.players}
-                                </div>
+                                    {credentials?.credentials?.jwt !== undefined &&
+                                        <div className="gamesNumber">
+                                            <div onClick={() => rentGame({ game, email }, jwt)} className='gameButton  mb-2'>
+                                                Reservar partido
+                                            </div>
 
-                                {credentials?.credentials?.jwt !== undefined &&
-                                    <>
-                                        <div onClick={() => rentGame({ game, email }, jwt)} className='buttonssDesign'>
-                                            Reservar partido
+
                                         </div>
 
-
-                                    </>
-
-                                }
-
-
-                            </div>
-                        );
-                    })}
+                                    }
 
 
 
-                    <div onClick={() => returnHome()} className='buttonssDesign'>
-                        Volver a Home
+                                </div>
+                            );
+                        })}
+
+                        <div onClick={() => returnHome()} className='gameButton'>
+                            Volver a Home
+                        </div>
+                        <div id="reserror"></div>
+
+
+
                     </div>
-                    <div id="reserror"></div>
-
                 </div>
+
             </div>
 
         )
 
     } else {
         return (
-            <div className="sportDesign">
+            <div className="gameDesign">
                 <div>Ha Habido un error</div>
-                <div onClick={() => returnHome()} className='buttonssDesign'>
+                <div onClick={() => returnHome()} className='gameButton'>
                     Volver a Home
                 </div>
 

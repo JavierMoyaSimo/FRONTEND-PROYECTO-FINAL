@@ -27,7 +27,7 @@ const Header = () => {
 
     return (
       <Navbar bg="light" expand="lg">
-        <div className='container-fluid'>
+        <div className='container-fluid '>
           <Navbar.Brand className='col-lg-3 col-md-2 homehome'>PROPADEL</Navbar.Brand>
           <Nav.Link onClick={() => navigate("/")} className='col-lg-6 col-md-8 homehome'><button className='homebutton'>Home</button></Nav.Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav col-lg-3 col-md-2" />

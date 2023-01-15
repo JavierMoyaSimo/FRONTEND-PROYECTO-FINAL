@@ -63,8 +63,12 @@ export const bringBookings = async (user, jwt) => {
 };
 
 
-export const bringGamesbySportsCenter = async (details) => {
-  let res = await axios.get(dataBase + "/games/games/" + details);
+export const bringGamesbySportsCenter = async (details, jwt) => {
+  let res = await axios.get(dataBase + "/games/games/" + details,
+    {
+      headers: { Authorization: `Bearer ${jwt}` },
+    }
+  );
 
   return res.data;
 };
@@ -88,7 +92,7 @@ export const eraseGame = async (notGame, jwt) => {
 };
 
 export const createGame = async (body, jwt) => {
-  let res = await axios.post(dataBase + "/games/newGame",body, {
+  let res = await axios.post(dataBase + "/games/newGame", body, {
     headers: { Authorization: `Bearer ${jwt}` },
   });
 
