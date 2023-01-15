@@ -6,7 +6,6 @@ import { sportscenterData, addSportscenter } from "../Sportscenters/sportscenter
 import "./Home.scss";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
-
 const Home = () => {
 
     const sportscentersFromRdx = useSelector(sportscenterData);
