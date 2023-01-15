@@ -63,6 +63,9 @@ const Game = () => {
                 setTimeout(() => {
                     document.getElementById("reserror").innerHTML = `No se ha realizado la reserva, el partido con identificador número ${game_id} ya ha sido reservado`;
                 }, 500);
+                // setTimeout(() => {
+                //     #reserror
+                // }, 500);
 
             }
 
@@ -98,14 +101,15 @@ const Game = () => {
     else if (games.length > 0) {
 
         return (
-            <div className="containerDesign">
-                <div className="row">
-                    <div className="gameDesign col-12 mt-4 mb-4">
+            <div className="containerDesign paddingGame">
+                
+                    <div className="gameDesign row mt-4 mb-4">
+                    
                         {games.map((game, index) => {
                             return (
                                 <div
                                     key={index}
-                                    className="gameShow mb-3 ">
+                                    className="gameShow mb-3 col-lg-6 col-md-6 col-sm-12 ">
                                     <div className='gamesNumber gameNumberId'>
                                         <p className='pGames'>Partido numero:</p>
                                         {game.game_id}
@@ -149,7 +153,7 @@ const Game = () => {
 
 
                     </div>
-                </div>
+                
 
             </div>
 
