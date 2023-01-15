@@ -39,7 +39,7 @@ const Sportscenter = () => {
     if (selectedSportscenter?.sportscenter_id !== undefined) {
 
         return (
-            // <div className="sportsDesigns">
+            
             <div className="container-fluid  descriptiontext">
                 <div className='row sportsDesigns'>
                     <div className='col-lg-6 col-md-6 col-sm-12 twodivs leftdiv'>
@@ -70,9 +70,9 @@ const Sportscenter = () => {
 
     } else {
         return (
-            // <div className="sportsDesigns">
-            <div className="container-fluid ">
-                <div>Ha Habido un error</div>
+            
+            <div className="container-fluid descriptiontext sportsDesigns">
+                <div></div>
                 <div onClick={() => returnHome()} className='sportscenterbutton'>
                     Volver a Home
                 </div>

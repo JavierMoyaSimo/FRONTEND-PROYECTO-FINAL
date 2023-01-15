@@ -15,14 +15,14 @@
     color: rgb(32, 168, 93);
   }
   
-  .buttonssDesign {
+  .loginButton{
     height: 2.5em;
     width: 7.5em;
-  
+
     display: flex;
     justify-content: center;
     align-items: center;
-  
+
     transition: 0.2s;
     margin: 0.5em 0 0 0;
     border: 2px solid white;
@@ -32,14 +32,15 @@
     cursor: pointer;
     font-weight: 500;
   }
-  
-  .buttonssDesign:hover {
+
+  .loginButton:hover {
     transition: 0.2s;
-    width: 14vw;
+    // width: 14vw;
     transition: 0.2s width;
-    color: rgba(231, 248, 248, 0.865);
+    color: black;
     font-weight: 600;
-  }
+    opacity: 50%;
+}
   
   .inputsContainer {
     display: flex;

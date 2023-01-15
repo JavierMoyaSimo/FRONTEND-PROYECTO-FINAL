@@ -48,9 +48,9 @@ const Header = () => {
 
     return (
       <Navbar bg="light" expand="lg">
-        <div className='container-fluid'>
-          <Navbar.Brand className='col-lg-3 col-md-2 homehome'>PROPADEL</Navbar.Brand>
-          <Nav.Link onClick={() => navigate("/")}className='col-lg-6 col-md-8 homehome'><button className='homebutton'>Home</button></Nav.Link>
+        <div className='container-fluid '>
+          <Navbar.Brand className='col-lg-3 col-md-2 homehome '><div className='propadel'>PROPADEL</div></Navbar.Brand>
+          <Nav.Link onClick={() => navigate("/")}className='col-lg-6 col-md-8 homehome '><button className='homebutton'>Home</button></Nav.Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav col-lg-3 col-md-2" />
           <Navbar.Collapse id="basic-navbar-nav" className='align-right'>
             <Nav className="me-auto align-right">

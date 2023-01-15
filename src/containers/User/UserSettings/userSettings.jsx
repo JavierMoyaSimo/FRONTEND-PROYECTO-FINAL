@@ -240,7 +240,7 @@ const UserSettings = () => {
 
         return (
             // <div className="settingsViewDesign">
-            <div className="container-fluid">
+            <div className="container-fluid noscrollClass">
 
                 <div className="row usersettingsDesigns">
                     <div className="col-lg-6 col-md-6 col-sm-12 settingsBoxDesign">
@@ -335,11 +335,11 @@ const UserSettings = () => {
 
                     {/* <div className="settingsBoxDesign"> */}
 
-                    <div className="col-lg-6 col-md-6 col-sm-12">
+                    <div className="col-lg-6 col-md-6 col-sm-12 ">
 
 
                         <h1 className="updateTittleDesign">Ajustes del Administrador</h1>
-                        <div className="formSquare2">
+                        <div className="formSquare2 ">
                             <div className="eraseBox">
 
                                 <input type="text" name="notEmail" className="eraseInput mt-2" placeholder="Email de usuario..." onChange={inputEraseHandler} />
@@ -394,9 +394,9 @@ const UserSettings = () => {
     }
     else if (userReduxCredentials?.credentials?.roleRoleId === "sportscenteradmin") {
         return (
-            <div className="container-fluid">
+            <div className="container-fluid ">
 
-                <div className="row usersettingsDesigns">
+                <div className="row usersettingsDesigns ">
                     <div className="col-lg-6 col-md-6 col-sm-12 settingsBoxDesign">
 
 
@@ -487,7 +487,7 @@ const UserSettings = () => {
                         </div>
                     </div>
 
-                    <div className="col-lg-6 col-md-6 col-sm-12 pb-4">
+                    <div className="col-lg-6 col-md-6 col-sm-12 pb-4 ">
 
 
                         <h1 className="updateTittleDesign">PARTIDOS </h1>

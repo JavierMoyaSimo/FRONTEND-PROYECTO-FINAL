@@ -11,6 +11,8 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding: 1em;
+  // overflow-y: hidden;
   // align-items: center;
 
 }
@@ -20,6 +22,8 @@
   cursor: default;
 
 }
+
+
 
 .cursordefault {
   cursor: default;
@@ -56,6 +60,8 @@ p {
   display: flex;
 }
 
+
+
 // .formSquare2 {
 //   font-family: "Courier New", Courier, monospace;
 //   font-size: small;
@@ -85,6 +91,8 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  // max-height: 100vh
+  
 }
 
 // .formSquare2::-webkit-scrollbar-track {

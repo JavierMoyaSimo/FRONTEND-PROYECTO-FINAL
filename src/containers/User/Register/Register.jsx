@@ -191,7 +191,7 @@ const Register = () => {
                     <div className="errorInput">{userError.password2Error}</div>
                     <div className="registerAdviseDesign">
 
-                        <input
+                        {/* <input
                             type="checkbox"
                             defaultChecked={acceptedTerms}
                             onChange={() => setAcceptedTerms(!acceptedTerms)}
@@ -199,12 +199,12 @@ const Register = () => {
                         <p>
 
                             He leido la <span className="privacity">politica</span> de <span className="privacity">privacidad</span> de la empresa{" "}
-                        </p>
+                        </p> */}
 
                     </div>
                     <br></br>
                     <div className="buttoncenter">
-                        <div onClick={() => SignIn()} className="buttonssDesign">
+                        <div onClick={() => SignIn()} className="registerButton">
                             Registrarme!
                         </div>
                         <div id="regerror" className="errorInput"></div>
