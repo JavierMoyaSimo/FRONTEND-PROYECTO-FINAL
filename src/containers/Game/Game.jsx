@@ -44,9 +44,7 @@ const Game = () => {
 
     const rentGame = async (body2, jwt) => {
 
-        console.log(games, "estossonlosgames");
-        console.log(games.game_id, "estosGAMESIDS")
-        console.log(body2.game.game_id, "ESTE ES EL BODY2")
+        
         let game_id = body2.game.game_id;
 
 
@@ -57,7 +55,7 @@ const Game = () => {
             });
 
 
-            console.log(res.data.message, "jdghfisdgfldfgsdñfs")
+            
             if (res.data.message === "No se ha realizado la reserva,  este partido ya ha sido reservado") {
                 document.getElementById("reserror").innerHTML = "";
                 setTimeout(() => {
@@ -96,7 +94,7 @@ const Game = () => {
         navigate("/");
     }
 
-    if (games.length === 0) { return <div className="gameDesign">Este centro no tiene ningún partido activo</div>; }
+    if (games.length === 0) { return <div className="gamewithOutGames"></div>; }
     else if (games.length > 0) {
 
         return (

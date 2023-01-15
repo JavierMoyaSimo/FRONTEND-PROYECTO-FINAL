@@ -39,14 +39,14 @@ const Home = () => {
     };
 
     if (sportscenters.length === 0) {
-        return <div className="homeDesign">Ha habido un error</div>;
+        return <div className="containerDesign"></div>;
     } else if (sportscentersFromRdx.details.length > 0) {
 
 
         return (
 
 
-            // <div className="containerDesign">
+            
             <div className="container-fluid containerDesign">
 
                 <SearchBar />
