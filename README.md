@@ -35,47 +35,54 @@ Algunas de las funcionalidades son:
 
 Vista principal: 'Home'.
 <br>
-<img src="./img/Home.PNG" width="400em"/>
+<img src="./img/home.PNG" width="400em"/>
 <br>
 
 Vista de registro
 <br>
-<img src="./img/Register.PNG" width="400em"/>
+<img src="./img/register.PNG" width="400em"/>
 <br>
 
 Vista de Login
 <br>
-<img src="./img/Login.PNG" width="400em"/>
+<img src="./img/login.PNG" width="400em"/>
 <br>
 
 Vista de descripción de Polideportivo
 
 <br>
-<img src="./img/game.PNG" width="400em"/>
+<img src="./img/sportscenter.PNG" width="400em"/>
 <br>
 
 Partidos de un polideportivo
 
 <br>
-<img src="./img/booking.PNG" width="400em"/>
+<img src="./img/games.PNG" width="400em"/>
 <br>
+
+Vista de perfil.
+
+<br>
+<img src="./img/profile.PNG" width="400em"/>
+<br>
+
 
 Vista de configuración (como admin).
 
 <br>
-<img src="./img/settings.PNG" width="400em"/>
+<img src="./img/admin.PNG" width="400em"/>
 <br>
 
 Vista de configuración (como sportscenteradmin)
 
 <br>
-<img src="./img/SettingsUser.PNG" width="400em"/>
+<img src="./img/sportscenter-admin.PNG" width="400em"/>
 <br>
 
 Vista de configuración (como usuario).
 
 <br>
-<img src="./img/settings.PNG" width="400em"/>
+<img src="./img/user.PNG" width="400em"/>
 <br>
 
 ---
