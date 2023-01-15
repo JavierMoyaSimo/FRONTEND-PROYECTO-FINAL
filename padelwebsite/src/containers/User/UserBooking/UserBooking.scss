@@ -7,19 +7,23 @@
    
 }
 
-.moviesNumber{
+.bookingNumber{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: green;
 }
 
 .orderDesign {
     display: flex;
     flex-direction: column;
+    font-family: "Courier New", Courier, monospace;
+    background-color: rgb(173, 214, 212);
+   height: 100vh;
 }
 
-.pMovies {
-    color: white;
+.pbooking {
+    color: green;
+    font-family: "Courier New", Courier, monospace;
 }

@@ -1,6 +1,6 @@
-.sportDesign {
-    height: 90vh;
-    width: 100vw;
+.gameShow {
+    // height: 90vh;
+    // width: 100vw;
 
     display: flex;
     flex-direction: column;
@@ -8,18 +8,23 @@
     align-items: center;
     color: rgb(32, 168, 93);
     background-color: rgb(173, 214, 212);
+    // border: 1px solid #000;
 
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
 }
 
-.sportPic {
-    margin: 1em;
-    height: 19em;
-    width: 15em;
+.gameDesign {
+    //    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    font-weight: bold;
+    flex-wrap: wrap;
 }
 
-.buttonDesign {
+.gameButton {
     height: 2.5em;
     width: 7.5em;
 
@@ -31,16 +36,41 @@
     margin: 0.5em 0 0 0;
     border: 2px solid white;
     border-radius: 1em;
-    background-color: aqua;
+    background-color: rgb(37, 146, 117);
     color: rgb(255, 255, 255);
     cursor: pointer;
     font-weight: 500;
+
 }
 
-.buttonDesign:hover {
+.gameButton:hover {
     transition: 0.2s;
-    width: 14vw;
     transition: 0.2s width;
-    color: red;
+    color: black;
     font-weight: 600;
+    opacity: 50%;
+}
+
+.gamesNumber {
+    border: 1px solid #000;
+    width: 100%;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    color: green;
+    // margin-left: 2em;
+    // margin-right: 1em;
+
+}
+
+.gameNumberId {
+    background-color: white;
+}
+
+.pGames {
+    color: green;
+}
+
+.paddingGame{
+    padding: 1em;
 }

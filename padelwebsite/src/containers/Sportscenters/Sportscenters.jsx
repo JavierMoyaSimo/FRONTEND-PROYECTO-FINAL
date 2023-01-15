@@ -15,7 +15,7 @@ const Sportscenter = () => {
     const navigate = useNavigate();
 
 
-    const title = selectedSportscenter?.sportscenter_id;
+    const title = selectedSportscenter?.details?.sportscenter_id;
     // const email = credentials?.credentials?.email;
     // const jwt = credentials?.credentials?.jwt;
     // const body = { email, title };
@@ -23,6 +23,8 @@ const Sportscenter = () => {
 
     const watchMe = (title) => {
 
+        console.log(title,"Esteeselsportscenterid")
+        console.log(credentials,"EstossonCreDENTIALS")
         dispatch(addGame({ ...title, details: title }));
 
         setTimeout(() => {
