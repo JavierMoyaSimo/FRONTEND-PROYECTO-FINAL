@@ -16,10 +16,7 @@ const Sportscenter = () => {
 
 
     const title = selectedSportscenter?.details?.sportscenter_id;
-    // const email = credentials?.credentials?.email;
-    // const jwt = credentials?.credentials?.jwt;
-    // const body = { email, title };
-    // const dataBase = "http://localhost:3001";
+   
 
     const watchMe = (title) => {
 

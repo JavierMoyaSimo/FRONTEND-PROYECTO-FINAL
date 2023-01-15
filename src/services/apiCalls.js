@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const dataBase = "http://localhost:3001";
+const dataBase = "https://proyecto-final-production-3793.up.railway.app";
 
 export const loginUser = async (user) => {
   let res = await axios.post(dataBase + "/auth/login", user);

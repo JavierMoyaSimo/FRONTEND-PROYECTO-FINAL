@@ -40,7 +40,7 @@ const Game = () => {
     const idgameid = games.game_id
     const body = { email, title };
     const body2 = { email, idgameid }
-    const dataBase = "http://localhost:3001";
+    const dataBase = "https://proyecto-final-production-3793.up.railway.app";
 
     const rentGame = async (body2, jwt) => {
 
@@ -62,10 +62,9 @@ const Game = () => {
                 document.getElementById("reserror").innerHTML = "";
                 setTimeout(() => {
                     document.getElementById("reserror").innerHTML = `No se ha realizado la reserva, el partido con identificador número ${game_id} ya ha sido reservado`;
+                     window.location.href = "https://proyecto-final-production-3793.up.railway.app/game#reserror"; 
                 }, 500);
-                // setTimeout(() => {
-                //     #reserror
-                // }, 500);
+                
 
             }
 
