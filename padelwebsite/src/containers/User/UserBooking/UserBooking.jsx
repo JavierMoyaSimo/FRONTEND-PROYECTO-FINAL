@@ -49,14 +49,15 @@ const UserBooking = () => {
             <div className="containerDesign">
 
                 <div className="orderDesign">
+                    <h1>PARTIDOS RESERVADOS:</h1>
                     {bookings.map((booking, index) => {
                         return (
                             <div
                                 key={index}
                                 className="orderShow">
-                                <div className='moviesNumber'>
-                                    <p className='pMovies'>Partido número:</p>
-                                    {booking.gameGameId}
+                                <div className='bookingNumber'>
+                                    <p className='pbooking '>Partido número:</p>
+                                    <p className='pbooking '>{booking.gameGameId}</p>                                   
                                     
 
                                 </div>

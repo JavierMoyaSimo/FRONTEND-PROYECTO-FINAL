@@ -487,7 +487,7 @@ const UserSettings = () => {
                         </div>
                     </div>
 
-                    <div className="col-lg-6 col-md-6 col-sm-12">
+                    <div className="col-lg-6 col-md-6 col-sm-12 pb-4">
 
 
                         <h1 className="updateTittleDesign">PARTIDOS </h1>
