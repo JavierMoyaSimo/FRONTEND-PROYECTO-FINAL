@@ -50,14 +50,14 @@ const Register = () => {
                 roleRoleId: "user"
             });
             if (resultado) {
-                console.log("Registro completado con exito")
+
                 setTimeout(() => {
 
                     navigate("/login");
                 }, 300);
 
             } else {
-                console.log("ESTE ES EL ELSE")
+
 
                 userError.registerError = "Registro fallido, revise todos los campos"
                 setUserError(userError)
@@ -191,15 +191,7 @@ const Register = () => {
                     <div className="errorInput">{userError.password2Error}</div>
                     <div className="registerAdviseDesign">
 
-                        {/* <input
-                            type="checkbox"
-                            defaultChecked={acceptedTerms}
-                            onChange={() => setAcceptedTerms(!acceptedTerms)}
-                        />
-                        <p>
 
-                            He leido la <span className="privacity">politica</span> de <span className="privacity">privacidad</span> de la empresa{" "}
-                        </p> */}
 
                     </div>
                     <br></br>

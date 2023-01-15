@@ -1,38 +1,29 @@
 .gameShow {
-    // height: 90vh;
-    // width: 100vw;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: rgb(32, 168, 93);
     background-color: rgb(173, 214, 212);
-    // border: 1px solid #000;
-
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
 }
 
 .gameDesign {
-    //    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     font-weight: bold;
     flex-wrap: wrap;
-
 }
 
 .gameButton {
     height: 2.5em;
     width: 7.5em;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     transition: 0.2s;
     margin: 0.5em 0 0 0;
     border: 2px solid white;
@@ -41,7 +32,6 @@
     color: rgb(255, 255, 255);
     cursor: pointer;
     font-weight: 500;
-
 }
 
 .gameButton:hover {
@@ -59,9 +49,6 @@
     display: flex;
     justify-content: center;
     color: green;
-    // margin-left: 2em;
-    // margin-right: 1em;
-
 }
 
 .gameNumberId {

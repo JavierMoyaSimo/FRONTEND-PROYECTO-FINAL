@@ -12,7 +12,6 @@
 }
 
 .twodivs {
-    // color: rgb(32, 168, 93);
     color: rgb(51, 65, 54);
     display: flex;
     flex-direction: column;
@@ -21,7 +20,6 @@
 }
 
 .leftdiv {
-    // color: rgb(51, 65, 54);
     color: rgb(32, 168, 93);
 }
 
@@ -34,11 +32,9 @@
 .sportscenterbutton {
     height: 2.5em;
     width: 7.5em;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     transition: 0.2s;
     margin: 0.5em 0 0 0;
     border: 2px solid white;
@@ -51,7 +47,6 @@
 
 .sportscenterbutton:hover {
     transition: 0.2s;
-    // width: 14vw;
     transition: 0.2s width;
     color: black;
     font-weight: 600;
@@ -61,6 +56,4 @@
 .descriptiontext {
     overflow: auto;
     background-color: rgb(173, 214, 212);
-    // height: 100vh;
-
 }

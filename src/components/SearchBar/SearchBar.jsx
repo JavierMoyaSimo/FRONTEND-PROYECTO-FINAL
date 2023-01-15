@@ -3,7 +3,7 @@ import { addSearch, cleanSearch } from "../../containers/Sportscenters/sportscen
 import { searchSportscenters } from "../../services/apiCalls";
 import { useDispatch } from "react-redux";
 import './SearchBar.scss'
-import Container from "react-bootstrap/esm/Container";
+
 
 
 const SearchBar = () => {
@@ -41,7 +41,7 @@ const SearchBar = () => {
 
         } else if (criteria === '') {
             
-            //Guardo en RDX sportscenters vacíos...
+            
             dispatch(cleanSearch({ details: {} }))
         }
     }, [criteria]);

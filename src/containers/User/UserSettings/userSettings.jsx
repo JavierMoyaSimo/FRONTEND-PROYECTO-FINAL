@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./userSettings.scss";
 
-import { gameData, addGame } from "../../Game/gamesSlice";
+import { gameData } from "../../Game/gamesSlice";
 
 
 
@@ -137,53 +137,6 @@ const UserSettings = () => {
 
     };
 
-    // let bodygame = {
-    //     type: games.type,
-    //     players: games.players,
-    //     date: games.date,
-    //     sportscenterSportscenterId: games.sportscenterSportscenterId,
-    // }
-
-    // --------------------------------------------------------------------------------------------------------
-    // const NewGame = async (bodygame, jwt) => {
-
-    //     createGame(bodygame, jwt)
-    // try {
-
-    //     console.log(games, "ESTOSSONGAMESENNEWGAME");
-
-    //     let resultado = await axios.post(dataBase + "games/newGame", {
-    //         type: games.type,
-    //         players: games.players,
-    //         date: games.date,
-    //         sportscenterSportscenterId: games.sportscenterSportscenterId,
-
-    //     }, );
-    //     if (resultado) {
-    //         console.log("PARTIDO CREADO CON EXITO")
-
-    //         updateGames();
-    //     } else {
-    //         console.log("ESTE ES EL ELSE")
-
-    //         userError.registerError = "No se ha creado el partido"
-
-    //     }
-
-
-
-
-    // } catch (error) {
-    //     console.error('Creacion fallida')
-
-
-    // }
-
-
-
-
-    // };
-    // --------------------------------------------------------------------------------------------------------
 
     //bringing users from ap
 
@@ -203,7 +156,7 @@ const UserSettings = () => {
         };
     }
 
-    //-----------------------------------------------------------------------------------------------------
+
     // bringing games from ap
 
     const handleEraseGame = () => {
@@ -221,7 +174,7 @@ const UserSettings = () => {
             console.error(error)
         };
     }
-    //-----------------------------------------------------------------------------------------------------
+
 
     const errorHandler = (field, value, type) => {
         let error = "";
@@ -239,7 +192,7 @@ const UserSettings = () => {
     if (userReduxCredentials?.credentials?.roleRoleId === "admin") {
 
         return (
-            // <div className="settingsViewDesign">
+
             <div className="container-fluid noscrollClass">
 
                 <div className="row usersettingsDesigns">
@@ -333,7 +286,7 @@ const UserSettings = () => {
                         </div>
                     </div>
 
-                    {/* <div className="settingsBoxDesign"> */}
+
 
                     <div className="col-lg-6 col-md-6 col-sm-12 ">
 

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { bookingData } from "./bookingSlice";
 import { userData } from "../userSlice";
 import { useNavigate } from 'react-router-dom';
-import { bringBookings, rentGame } from "../../../services/apiCalls";
+import { bringBookings } from "../../../services/apiCalls";
 
 const UserBooking = () => {
 

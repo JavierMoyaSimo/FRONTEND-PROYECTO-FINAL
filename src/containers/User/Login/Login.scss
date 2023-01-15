@@ -1,12 +1,10 @@
 .loginDesign {
     height: 90vh; 
-    width: 100vw;
-  
+    width: 100vw;  
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-  
+    align-items: center;  
     color: rgb(32, 168, 93);
     background-color: rgb(173, 214, 212);
   }
@@ -18,11 +16,9 @@
   .loginButton{
     height: 2.5em;
     width: 7.5em;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     transition: 0.2s;
     margin: 0.5em 0 0 0;
     border: 2px solid white;
@@ -35,7 +31,6 @@
 
   .loginButton:hover {
     transition: 0.2s;
-    // width: 14vw;
     transition: 0.2s width;
     color: black;
     font-weight: 600;

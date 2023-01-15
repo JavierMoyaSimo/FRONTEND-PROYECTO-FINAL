@@ -35,6 +35,7 @@
     padding-right: 1em;
     color: rgb(15, 2, 2);
     text-align: center;
+
   }
 
   .input-search::placeholder {
@@ -52,33 +53,5 @@
     transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
   }
   
-  // .btn-search {
-  //   width: 7vw;
-  //   height: 3vh;
-  //   border-style: none;
-  //   font-size: 20px;
-  //   font-weight: bold;
-  //   outline: none;
-  //   // cursor: pointer;
-  //   border-radius: 50%;
-  //   position: absolute;
-  //   right: 0px;
-  //   color: #0e0101;
-  //   background-color: transparent;
-  //   pointer-events: painted;
-  // }
-  // .btn-search:focus ~ .input-search {
-  //   width: 50vw;
-  //   border-radius: 0px;
-  //   background-color: transparent;
-  //   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  //   transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
-  // }
-
-  // .divInputDesign {
-  //   background-color: rgba(156, 156, 156, 0);
-  //   width: 100vw;
-  //   height: 10vh;
-  // }
-
+  
   

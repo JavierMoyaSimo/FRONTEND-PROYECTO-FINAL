@@ -5,10 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { userData, login } from "../userSlice";
 import { errorCheck } from "../../../services/errorManage";
 import "./Login.scss";
-
 import EyeIcon from "../../../components/icons/EyeIcon";
 import EyeSlashIcon from "../../../components/icons/EyeSlashIcon";
-
 
 
 const Login = () => {
@@ -23,7 +21,7 @@ const Login = () => {
 
   const userReduxCredentials = useSelector(userData);
 
-  //Hooks 
+  //HOOKS
   const [user, setUser] = useState({
     email: "",
     password: "",

@@ -20,8 +20,7 @@ const Sportscenter = () => {
 
     const watchMe = (title) => {
 
-        console.log(title,"Esteeselsportscenterid")
-        console.log(credentials,"EstossonCreDENTIALS")
+        
         dispatch(addGame({ ...title, details: title }));
 
         setTimeout(() => {

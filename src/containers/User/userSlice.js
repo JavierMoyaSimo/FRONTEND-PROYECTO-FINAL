@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';//Método que me permite crear el slice
+import { createSlice } from '@reduxjs/toolkit';e
 
 export const userSlice = createSlice({
     name: 'user',

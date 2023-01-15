@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { bringSportscenters } from "../../services/apiCalls";
 import { useSelector, useDispatch } from "react-redux";
 import { sportscenterData, addSportscenter } from "../Sportscenters/sportscentersSlice";
-// import Container from 'react-bootstrap/Container';
-
 import "./Home.scss";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
@@ -15,6 +13,7 @@ const Home = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    
     //Hooks
     const [sportscenters, setSportscenters] = useState([]);
 
