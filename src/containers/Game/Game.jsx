@@ -61,7 +61,7 @@ const Game = () => {
                 setTimeout(() => {
                     document.getElementById("reserror").innerHTML = `No se ha realizado la reserva, el partido con identificador número ${game_id} ya ha sido reservado`;
                     // window.location.href = "https://proyecto-final-production-3793.up.railway.app/game/#reserror";
-                }, 200);
+                }, 500);
 
 
             }
@@ -128,8 +128,7 @@ const Game = () => {
                                 {credentials?.credentials?.jwt !== undefined &&
                                     <div className="gamesNumber">
                                         <div onClick={() => rentGame({ game, email }, jwt)} className='gameButton  mb-2'>
-                                            <a href="#reserror"> Reservar partido</a>
-
+                                            Reservar partido
                                         </div>
 
 
