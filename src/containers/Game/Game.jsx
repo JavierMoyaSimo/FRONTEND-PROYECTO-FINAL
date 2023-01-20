@@ -44,25 +44,25 @@ const Game = () => {
 
     const rentGame = async (body2, jwt) => {
 
-        
-        let game_id = body2.game.game_id;
 
+        let game_id = body2.game.game_id;
+        console.log(jwt, "tokentoken")
 
         try {
-
+            console.log(jwt, "ESTE ES EL TOKEN");
             let res = await axios.post(dataBase + "/bookings/newBooking", { email, game_id }, {
                 headers: { Authorization: `Bearer ${jwt}` },
             });
 
 
-            
+
             if (res.data.message === "No se ha realizado la reserva,  este partido ya ha sido reservado") {
                 document.getElementById("reserror").innerHTML = "";
                 setTimeout(() => {
                     document.getElementById("reserror").innerHTML = `No se ha realizado la reserva, el partido con identificador número ${game_id} ya ha sido reservado`;
-                     window.location.href = "https://proyecto-final-production-3793.up.railway.app/game#reserror"; 
-                }, 500);
-                
+                    // window.location.href = "https://proyecto-final-production-3793.up.railway.app/game/#reserror";
+                }, 200);
+
 
             }
 
@@ -99,58 +99,59 @@ const Game = () => {
 
         return (
             <div className="containerDesign paddingGame">
-                
-                    <div className="gameDesign row mt-4 mb-4">
-                    
-                        {games.map((game, index) => {
-                            return (
-                                <div
-                                    key={index}
-                                    className="gameShow mb-3 col-lg-6 col-md-6 col-sm-12 ">
-                                    <div className='gamesNumber gameNumberId'>
-                                        <p className='pGames'>Partido numero:</p>
-                                        {game.game_id}
 
-                                    </div>
-                                    <div className='gamesNumber'>
-                                        <p className='pGames'>Fecha:</p>
-                                        {game.date}
-                                    </div>
-                                    <div className='gamesNumber'>
-                                        <p className='pGames'>Tipo:</p>
-                                        {game.type}
-                                    </div>
-                                    <div className='gamesNumber'>
-                                        <p className='pGames'>Jugadores:</p>
-                                        {game.players}
-                                    </div>
+                <div className="gameDesign row mt-4 mb-4">
 
-                                    {credentials?.credentials?.jwt !== undefined &&
-                                        <div className="gamesNumber">
-                                            <div onClick={() => rentGame({ game, email }, jwt)} className='gameButton  mb-2'>
-                                                Reservar partido
-                                            </div>
+                    {games.map((game, index) => {
+                        return (
+                            <div
+                                key={index}
+                                className="gameShow mb-3 col-lg-6 col-md-6 col-sm-12 ">
+                                <div className='gamesNumber gameNumberId'>
+                                    <p className='pGames'>Partido numero:</p>
+                                    {game.game_id}
 
+                                </div>
+                                <div className='gamesNumber'>
+                                    <p className='pGames'>Fecha:</p>
+                                    {game.date}
+                                </div>
+                                <div className='gamesNumber'>
+                                    <p className='pGames'>Tipo:</p>
+                                    {game.type}
+                                </div>
+                                <div className='gamesNumber'>
+                                    <p className='pGames'>Jugadores:</p>
+                                    {game.players}
+                                </div>
+
+                                {credentials?.credentials?.jwt !== undefined &&
+                                    <div className="gamesNumber">
+                                        <div onClick={() => rentGame({ game, email }, jwt)} className='gameButton  mb-2'>
+                                            <a href="#reserror"> Reservar partido</a>
 
                                         </div>
 
-                                    }
+
+                                    </div>
+
+                                }
 
 
 
-                                </div>
-                            );
-                        })}
+                            </div>
+                        );
+                    })}
 
-                        <div onClick={() => returnHome()} className='gameButton'>
-                            Volver a Home
-                        </div>
-                        <div id="reserror"></div>
-
-
-
+                    <div onClick={() => returnHome()} className='gameButton'>
+                        Volver a Home
                     </div>
-                
+                    <div id="reserror"></div>
+
+
+
+                </div>
+
 
             </div>
 
