@@ -61,16 +61,24 @@ const Game = () => {
                 setTimeout(() => {
                     document.getElementById("reserror").innerHTML = `No se ha realizado la reserva, el partido con identificador número ${game_id} ya ha sido reservado`;
                     // window.location.href = "https://proyecto-final-production-3793.up.railway.app/game/#reserror";
-                }, 500);
+                }, 100);
 
 
             }
 
             else {
-                document.getElementById("reserror").innerHTML = "";
+
+                // document.getElementById("reserror").innerHTML = "";
+                document.getElementById("reserror").innerHTML = `Enhorabuena,has reservado el partido número ${game_id} !`;
                 dispatch(addBooking({ bookings: res.data.resp }));
-                navigate("/userBooking")
-                return res;
+                // navigate("/userBooking")
+                // return res;
+                setTimeout(() => {
+                    navigate("/userBooking")
+                    return res;
+                   
+                    // window.location.href = "https://proyecto-final-production-3793.up.railway.app/game/#reserror";
+                }, 100);
             }
 
 
@@ -128,7 +136,7 @@ const Game = () => {
                                 {credentials?.credentials?.jwt !== undefined &&
                                     <div className="gamesNumber">
                                         <div onClick={() => rentGame({ game, email }, jwt)} className='gameButton  mb-2'>
-                                            Reservar partido
+                                            <a href="#reserror">Reservar partido</a>
                                         </div>
 
 
