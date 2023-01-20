@@ -136,7 +136,7 @@ const Game = () => {
                                 {credentials?.credentials?.jwt !== undefined &&
                                     <div className="gamesNumber">
                                         <div onClick={() => rentGame({ game, email }, jwt)} className='gameButton  mb-2'>
-                                            <a href="#reserror">Reservar partido</a>
+                                            <a className="divhrefa" href="#reserror">Reservar partido</a>
                                         </div>
 
 
