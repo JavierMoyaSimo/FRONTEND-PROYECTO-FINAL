@@ -76,7 +76,7 @@ const Game = () => {
                 setTimeout(() => {
                     navigate("/userBooking")
                     return res;
-                   
+
                     // window.location.href = "https://proyecto-final-production-3793.up.railway.app/game/#reserror";
                 }, 100);
             }
@@ -85,7 +85,7 @@ const Game = () => {
         }
 
         catch (err) {
-            console.error(err);
+            return console.error(err);
 
         }
 
